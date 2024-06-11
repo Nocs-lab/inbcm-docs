@@ -36,5 +36,6 @@ nav:
   - Home: index.md
   - Arquitetura INBCM: arquitetura.md
   - Guia para devs - backend: guia-dev-backend.md
+  - Recomendações: recomendacoes.md
   
   
