@@ -1,0 +1,40 @@
+site_name: INBCM
+theme:
+  name: 'material'
+  language: 'pt'
+  features:
+    - navigation.expand
+    - navigation.tabs
+    - navigation.prune
+    - navigation.sections
+    - search.highlight
+    - search.share
+    - toc.integrate
+    - content.code.copy
+
+plugins:
+  - search
+  # - mermaid2
+  - awesome-pages
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+nav:
+  - Home: index.md
+  - Arquitetura INBCM: arquitetura.md
+  - Guia para devs - backend: guia-dev-backend.md
+  
+  
