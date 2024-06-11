@@ -1,0 +1,1025 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="next" href="arquitetura/">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>INBCM</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentacao-do-projeto-inbcm" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="." title="INBCM" class="md-header__button md-logo" aria-label="INBCM" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            INBCM
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartilhar" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="arquitetura/" class="md-tabs__link">
+        
+  
+    
+  
+  Arquitetura INBCM
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="guia-dev-backend/" class="md-tabs__link">
+        
+  
+    
+  
+  Guia para devs - backend
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="recomendacoes/" class="md-tabs__link">
+        
+  
+    
+  
+  Recomendações
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="INBCM" class="md-nav__button md-logo" aria-label="INBCM" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    INBCM
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visão geral
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conceitos-envolvidos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conceitos envolvidos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos envolvidos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#itens-museologicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Itens museológicos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bens-bibliograficos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bens bibliográficos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bens-arquivisticos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bens arquivísticos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lei-119062009" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lei 11.906/2009
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decreto-no-8124-de-2013" class="md-nav__link">
+    <span class="md-ellipsis">
+      Decreto no 8.124 de 2013
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventario-nacional-de-bens-culturais-musealizados-inbcm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inventário Nacional de Bens Culturais Musealizados (INBCM)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registro-de-museus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registro de museus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preservacao-digital-e-fisica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Preservação digital e física
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#automacao-informacional" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automação informacional
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interoperabilidade-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Interoperabilidade de dados
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-caso-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagrama de Caso de Uso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explicacao-do-diagrama-de-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explicação do diagrama de classes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Explicação do diagrama de classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classes-principais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Classes principais
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entidades-e-relacionamentos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Entidades e relacionamentos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Entidades e relacionamentos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Profile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission" class="md-nav__link">
+    <span class="md-ellipsis">
+      Permission
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#museum" class="md-nav__link">
+    <span class="md-ellipsis">
+      Museum
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#address" class="md-nav__link">
+    <span class="md-ellipsis">
+      Address
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declaration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declaration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file" class="md-nav__link">
+    <span class="md-ellipsis">
+      File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Issue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#culturalitem" class="md-nav__link">
+    <span class="md-ellipsis">
+      CulturalItem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bibliographic-archival-museological" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bibliographic, Archival, Museological
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consideracoes-finais" class="md-nav__link">
+    <span class="md-ellipsis">
+      Considerações Finais
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="arquitetura/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arquitetura INBCM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guia-dev-backend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia para devs - backend
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="recomendacoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendações
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="documentacao-do-projeto-inbcm">Documentação do Projeto INBCM</h1>
+<h2 id="visao-geral">Visão geral</h2>
+<p>O Instituto Brasileiro de Museus (IBRAM), criado pela Lei 11.906/2009, lidera a Política Nacional de Museus (PNM) e busca não apenas gerenciar, mas também melhorar os serviços museológicos no Brasil. Isso envolve políticas para adquirir e preservar acervos e promover a integração entre museus. Uma função chave do IBRAM é administrar o Inventário Nacional de Bens Culturais Musealizados (INBCM), essencial para catalogar e preservar bens museológicos, bibliográficos e arquivísticos, conforme o Decreto no 8.124 de 2013. Com a necessidade de registros detalhados de todos os museus, surge a demanda por um sistema eficaz que apoie a manutenção atualizada dos dados musealizados. Para isso, está sendo desenvolvido um sistema de automação informacional pelo Laboratório de Redes e Sistemas Computacionais (NOCS Lab), vinculado ao Núcleo de Inovação em Tecnologias Computacionais (NITEC) do IFRN Campus Parnamirim. Esta colaboração entre o IBRAM e o IFRN, por meio do NOCS Lab, visa aprimorar a gestão cultural através da tecnologia avançada e processos otimizados, contribuindo significativamente para a preservação do patrimônio cultural brasileiro.</p>
+<h2 id="conceitos-envolvidos">Conceitos envolvidos</h2>
+<h3 id="itens-museologicos">Itens museológicos</h3>
+<p>Referem-se aos objetos que são coletados e preservados pelos museus devido ao seu valor histórico, artístico, científico ou cultural. Estes podem incluir artefatos, obras de arte, documentos históricos, e mais.</p>
+<h3 id="bens-bibliograficos">Bens bibliográficos</h3>
+<p>São itens que pertencem às coleções de bibliotecas, incluindo livros, periódicos, manuscritos, e outros materiais impressos ou digitais que são conservados por seu conteúdo informativo e cultural.</p>
+<h3 id="bens-arquivisticos">Bens arquivísticos</h3>
+<p>Refere-se a documentos ou informações acumulados, resultantes de atividades governamentais, institucionais, corporativas ou pessoais, que são preservados devido ao seu valor permanente, como evidência ou informação.</p>
+<h3 id="lei-119062009">Lei 11.906/2009</h3>
+<p>É a lei que estabeleceu o Instituto Brasileiro de Museus (IBRAM) e delineou suas responsabilidades na gestão e implementação da Política Nacional de Museus (PNM). Esta legislação serve como base legal para a organização e operação dos museus no Brasil.</p>
+<h3 id="decreto-no-8124-de-2013">Decreto no 8.124 de 2013</h3>
+<p>Este decreto regulamenta a Lei 11.906/2009, estabelecendo diretrizes específicas para a preservação, a catalogação e a gestão dos bens culturais musealizados. Define também os procedimentos e responsabilidades para a manutenção do Inventário Nacional de Bens Culturais Musealizados (INBCM).</p>
+<h3 id="inventario-nacional-de-bens-culturais-musealizados-inbcm">Inventário Nacional de Bens Culturais Musealizados (INBCM)</h3>
+<p>É um registro centralizado que visa documentar, catalogar e garantir a preservação dos bens culturais que fazem parte dos museus brasileiros. Este instrumento é essencial para a gestão efetiva dos acervos museológicos, bibliográficos e arquivísticos em todo o país.</p>
+<h3 id="registro-de-museus">Registro de museus</h3>
+<p>É o processo pelo qual os museus se qualificam e são reconhecidos oficialmente pelo governo. Isso implica em uma série de responsabilidades, incluindo a obrigação de fornecer informações detalhadas sobre seus acervos ao IBRAM.</p>
+<h3 id="preservacao-digital-e-fisica">Preservação digital e física</h3>
+<p>Envolve estratégias e tecnologias aplicadas para garantir a integridade e acessibilidade de longo prazo dos bens culturais, tanto em formatos físicos quanto digitais.</p>
+<h3 id="automacao-informacional">Automação informacional</h3>
+<p>Refere-se ao uso de tecnologias da informação e comunicação para automatizar a gestão de dados e informações, especialmente útil em contextos onde grandes volumes de dados, como em museus, precisam ser gerenciados de forma eficiente e precisa.</p>
+<h3 id="interoperabilidade-de-dados">Interoperabilidade de dados</h3>
+<p>A capacidade de diferentes sistemas e organizações trabalharem juntos, compartilhando dados e informações de maneira eficaz, o que é crucial para a integração dos dados dos museus em uma plataforma comum.</p>
+<h2 id="diagrama-de-caso-de-uso">Diagrama de Caso de Uso</h2>
+<pre class="mermaid"><code>flowchart LR
+    Usuário --&gt;|Download de arquivo| DownloadArquivos[("Realizar download de arquivos enviados")]
+    Usuário --&gt;|Download de recibo| DownloadRecibo[("Realizar download de recibo")]
+    Usuário --&gt;|Visualizar detalhes| VisualizarDetalhes[("Visualizar detalhes de uma declaração")]
+    Usuário --&gt;|Visualizar declarações| VisualizarDeclaracoes[("Visualizar declarações enviadas")]  
+    Usuário --&gt;|Realizar download| RealizarDownloadTemplate[("Realizar download de template")]
+    Usuário --&gt;|Preencher declaração| PreencherD[("Preencher declaração")]
+    Usuário --&gt;|Enviar declaração| EnviarD[("Enviar declaração")]
+
+    PreencherD --&gt;|Include| SubmeterArquivo[("Submeter arquivos")]
+    VisualizarPendencias[(Visualizar pendências)] --&gt;|Extend| EnviarD
+
+    FuncionárioIBRAM --&gt; |Visualizar dashboard| VisualizarDashboard[("Visualizar dashboard com indicadores do INBCM")] 
+    FuncionárioIBRAM --&gt; |Visualizar declarações| VisualizarDeclaracoesRecebidas[("Visualizar declarações recebidas")] 
+    FuncionárioIBRAM --&gt; |Modificar status| ModificarStatus[("Modificar status de declaração")]</code></pre>
+<p>O diagrama de caso de uso apresentado detalha as funções acessíveis para dois atores principais, "Usuário" e "Funcionário IBRAM". Para o "Usuário", as funcionalidades incluem gerenciamento completo de declarações, desde o preenchimento e envio até a visualização de detalhes e o download de recibos. Para o "Funcionário IBRAM", as funcionalidades focam na administração das declarações recebidas, visualização de indicadores de desempenho no dashboard e a habilidade de alterar o status das declarações. Este diagrama serve como uma ferramenta essencial para entender as interações entre usuários e sistema, facilitando o desenvolvimento e a operacionalização da plataforma.</p>
+<h2 id="explicacao-do-diagrama-de-classes">Explicação do diagrama de classes</h2>
+<p>O diagrama de classes descrito abaixo tem como objetivo fornecer uma visão clara e estruturada da arquitetura das entidades do sistema. Ele detalha as principais entidades envolvidas e suas inter-relações, facilitando a compreensão dos mecanismos de dados e funcionalidades do sistema. Este diagrama é essencial tanto para novos desenvolvedores quanto para stakeholders, ajudando-os a visualizar a organização dos componentes e como eles interagem para suportar as operações do sistema.</p>
+<h3 id="classes-principais">Classes principais</h3>
+<pre class="mermaid"><code>classDiagram
+    class Permission {
+        +string id
+        +string name
+    }
+
+    class Profile {
+        +string id
+        +string name
+        +Permission[] permissions
+    }
+
+    class User {
+        +string name
+        +string email
+        +Profile profile
+        +string password
+        +Museum[] museuns
+    }
+
+    Profile "1" -- "*" Permission : contains
+    User "1" -- "1" Profile : has
+
+    class Museum {
+        +String codIbram
+        +String name
+        +String administrativeSphere
+        +Address address
+        +ObjectId user
+    }
+
+    class Address {
+        +String street
+        +String number
+        +String complement
+        +String neighborhood
+        +String zipCode
+        +String municipality
+        +String state
+    }
+
+    Museum "1" -- "1" Address : has
+    User "1" -- "*" Museum : contains
+    User "1" -- "1" Address : has
+
+    class Issue {
+        +int index
+        +string field
+    }
+
+    class File {
+        +string name
+        +string path
+        +string status
+        +Issue[] issues
+        +int quantityItems
+        +string? hashFile
+    }
+
+    class Declaration {
+        +Museum museum
+        +string declarationYear
+        +User user
+        +string declarationHash
+        +Date creationDate
+        +int? totalItemsDeclared
+        +string status
+        +File archival
+        +File bibliographic
+        +File museological
+        +boolean rectification
+        +ObjectId rectificationRef
+        +boolean pending
+    }
+
+    File "1" -- "*" Issue : contains
+    Declaration "1" -- "1" User : has
+    Declaration "1" -- "1" Museum : has
+    Declaration "1" -- "1" File : archival
+    Declaration "1" -- "1" File : bibliographic
+    Declaration "1" -- "1" File : museological
+
+    class CulturalItem {
+        +String title
+        +String reproductionConditions
+        +String[] relatedMedia
+    }
+
+    class Bibliographic {
+        +Declaration declaration
+        +String recordNumber
+        +String otherNumbers
+        +String situation
+        +String type
+        +String identificationResponsibility
+        +String productionLocation
+        +String publisher
+        +String date
+        +String physicalDimension
+        +String materialTechnique
+        +String binding
+        +String descriptiveSummary
+        +String conservationState
+        +String mainSubject
+        +String chronologicalSubject
+        +String geographicalSubject
+    }
+
+    Declaration "1" -- "*" CulturalItem : contains
+    CulturalItem &lt;|-- Bibliographic : extends
+
+    class Archival {
+        +String referenceCode
+        +String date
+        +Number descriptionLevel
+        +String dimensionsSupport
+        +String producerName
+        +String administrativeHistoryBiography
+        +String archivalHistory
+        +String provenance
+        +String scopeContent
+        +String arrangementSystem
+        +String locationOriginals
+        +String conservationNotes
+        +String accessPointsIndexingSubjects
+    }
+
+    CulturalItem &lt;|-- Archival : extends
+
+    class Museological {
+        +String registrationNumber
+        +String otherNumbers
+        +String situation
+        +String denomination
+        +String author
+        +String classification
+        +String descriptiveSummary
+        +String dimensions
+        +String materialTechnique
+        +String conservationState
+        +String productionLocation
+        +String productionDate
+    }
+
+    CulturalItem &lt;|-- Museological : extends
+</code></pre>
+<h3 id="entidades-e-relacionamentos">Entidades e relacionamentos</h3>
+<h4 id="user">User</h4>
+<ul>
+<li><strong>Descrição</strong>: Representa os usuários do sistema.</li>
+<li><strong>Atributos</strong>:</li>
+<li><code>name</code>: Nome do usuário.</li>
+<li><code>email</code>: E-mail do usuário.</li>
+<li><code>profile</code>: Perfil associado ao usuário.</li>
+<li><code>password</code>: Senha para autenticação do usuário.</li>
+<li><code>museums</code>: Lista de museus geridos pelo usuário.</li>
+<li><strong>Relacionamentos</strong>:</li>
+<li>Cada <code>User</code> possui um <code>Profile</code> e pode gerenciar múltiplos <code>Museum</code>.</li>
+<li>Cada <code>User</code> também está associado a um <code>Address</code>.</li>
+</ul>
+<h4 id="profile">Profile</h4>
+<ul>
+<li><strong>Descrição</strong>: Armazena informações sobre perfis que definem as permissões dos usuários.</li>
+<li><strong>Atributos</strong>:</li>
+<li><code>name</code>: Nome do perfil.</li>
+<li><code>permissions</code>: Permissões atribuídas ao perfil.</li>
+<li><strong>Relacionamentos</strong>:</li>
+<li>Cada <code>Profile</code> contém várias <code>Permission</code>.</li>
+</ul>
+<h4 id="permission">Permission</h4>
+<ul>
+<li><strong>Descrição</strong>: Define controles de acesso dentro do sistema.</li>
+<li><strong>Atributos</strong>:</li>
+<li><code>name</code>: Nome descritivo da permissão.</li>
+</ul>
+<h4 id="museum">Museum</h4>
+<ul>
+<li><strong>Descrição</strong>: Representa um museu dentro do sistema.</li>
+<li><strong>Atributos</strong>:</li>
+<li><code>codIbram</code>: Código de identificação no IBRAM.</li>
+<li><code>name</code>: Nome do museu.</li>
+<li><code>administrativeSphere</code>: Esfera administrativa do museu.</li>
+<li><code>address</code>: Endereço físico do museu.</li>
+<li><strong>Relacionamentos</strong>:</li>
+<li>Cada <code>Museum</code> possui um <code>Address</code>.</li>
+<li>Cada <code>User</code> pode gerenciar múltiplos <code>Museum</code>.</li>
+</ul>
+<h4 id="address">Address</h4>
+<ul>
+<li><strong>Descrição</strong>: Detalhes do endereço físico.</li>
+<li><strong>Atributos</strong>:</li>
+<li><code>street</code>: Rua.</li>
+<li><code>number</code>: Número.</li>
+<li><code>complement</code>: Complemento.</li>
+<li><code>neighborhood</code>: Bairro.</li>
+<li><code>zipCode</code>: CEP.</li>
+<li><code>municipality</code>: Município.</li>
+<li><code>state</code>: Estado.</li>
+<li><strong>Relacionamentos</strong>:</li>
+<li>Usado por <code>Museum</code> e <code>User</code> para detalhar localizações.</li>
+</ul>
+<h4 id="declaration">Declaration</h4>
+<ul>
+<li><strong>Descrição</strong>: Representa uma declaração formal relacionada a um museu.</li>
+<li><strong>Atributos</strong>:</li>
+<li><code>museum</code>: Museu relacionado à declaração.</li>
+<li><code>declarationYear</code>: Ano da declaração.</li>
+<li><code>user</code>: Usuário que fez a declaração.</li>
+<li><code>declarationHash</code>: Hash da declaração.</li>
+<li><code>creationDate</code>: Data de criação da declaração.</li>
+<li><code>totalItemsDeclared</code>: Total de itens declarados.</li>
+<li><code>status</code>: Status da declaração.</li>
+<li><code>archival</code>: Arquivo arquivístico associado.</li>
+<li><code>bibliographic</code>: Arquivo bibliográfico associado.</li>
+<li><code>museological</code>: Arquivo museológico associado.</li>
+<li><code>rectification</code>: Indica se é uma retificação.</li>
+<li><code>rectificationRef</code>: Referência à declaração original, se for uma retificação.</li>
+<li><code>pending</code>: Indica se está pendente.</li>
+<li><strong>Relacionamentos</strong>:</li>
+<li>Cada <code>Declaration</code> está vinculada a um <code>User</code> e um <code>Museum</code> e contém arquivos específicos.</li>
+</ul>
+<h4 id="file">File</h4>
+<ul>
+<li><strong>Descrição</strong>: Gerencia informações sobre arquivos específicos associados a declarações.</li>
+<li><strong>Atributos</strong>:</li>
+<li><code>name</code>: Nome do arquivo.</li>
+<li><code>path</code>: Caminho de armazenamento do arquivo.</li>
+<li><code>status</code>: Status atual do arquivo.</li>
+<li><code>issues</code>: Problemas ou tarefas associadas ao arquivo.</li>
+<li><code>quantityItems</code>: Quantidade de itens no arquivo.</li>
+<li><code>hashFile</code>: Hash criptográfico opcional do arquivo para verificação.</li>
+<li><strong>Relacionamentos</strong>:</li>
+<li>Cada <code>File</code> pode conter várias <code>Issue</code>.</li>
+</ul>
+<h4 id="issue">Issue</h4>
+<ul>
+<li><strong>Descrição</strong>: Representa questões específicas ou tarefas relacionadas a um arquivo.</li>
+<li><strong>Atributos</strong>:</li>
+<li><code>index</code>: Índice da questão.</li>
+<li><code>field</code>: Campo relacionado à questão no arquivo.</li>
+</ul>
+<h4 id="culturalitem">CulturalItem</h4>
+<ul>
+<li><strong>Descrição</strong>: Classe base para diferentes tipos de itens culturais, que podem incluir detalhes bibliográficos, arquivísticos e museológicos.</li>
+<li><strong>Atributos</strong>:</li>
+<li><code>title</code>: Título do item cultural.</li>
+<li><code>reproductionConditions</code>: Condições de reprodução do item.</li>
+<li><code>relatedMedia</code>: Mídia relacionada ao item.</li>
+<li><strong>Relacionamentos</strong>:</li>
+<li><code>CulturalItem</code> é estendido pelas classes <code>Bibliographic</code>, <code>Archival</code> e <code>Museological</code>.</li>
+</ul>
+<h4 id="bibliographic-archival-museological">Bibliographic, Archival, Museological</h4>
+<ul>
+<li><strong>Descrição</strong>: Extensões especializadas de <code>CulturalItem</code> adaptadas às necessidades específicas de documentos bibliográficos, arquivísticos ou museológicos.</li>
+<li><strong>Atributos</strong> e <strong>Relacionamentos</strong>:</li>
+<li>Cada classe inclui atributos detalhados específicos para cada tipo e estende a classe base <code>CulturalItem</code>.</li>
+</ul>
+<h3 id="consideracoes-finais">Considerações Finais</h3>
+<p>Este documento serve como um guia essencial para o entendimento e a implementação do projeto INBCM, que envolve uma colaboração significativa entre o IBRAM e o NOCS Lab do IFRN. O objetivo principal é melhorar a gestão dos bens culturais musealizados através de uma plataforma de automação informacional, promovendo uma gestão mais eficaz e a preservação do patrimônio cultural brasileiro.</p>
+<p>Através deste projeto, busca-se não apenas preservar, mas também facilitar o acesso e a interoperabilidade dos dados culturais, beneficiando museus e instituições culturais com uma integração mais eficiente. A modernização do Inventário Nacional de Bens Culturais Musealizados através deste sistema digital é um passo crucial para a sustentabilidade e a acessibilidade do patrimônio cultural nacional.</p>
+<p>É recomendável que o documento seja revisado e atualizado periodicamente para refletir o progresso e as adaptações do projeto, garantindo que ele continue alinhado com as necessidades culturais e tecnológicas atuais. Este esforço contínuo assegurará a proteção e valorização do patrimônio cultural brasileiro para as futuras gerações.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.expand", "navigation.tabs", "navigation.prune", "navigation.sections", "search.highlight", "search.share", "toc.integrate", "content.code.copy"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>
