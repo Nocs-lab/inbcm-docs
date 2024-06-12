@@ -37,5 +37,6 @@ nav:
   - Arquitetura INBCM: arquitetura.md
   - Guia para devs - backend: guia-dev-backend.md
   - Recomendações: recomendacoes.md
+  - Boas práticas para API REST: boas-praticas-api-rest.md
   
   

@@ -30,12 +30,12 @@ npm run dev
 ### Acessar o MongoDB via Mongo Express
 
 * URL: localhost:8081
-* Usuário: admin
-* Senha: admin
+* Usuário: #####
+* Senha: #####
 
 ### Criar pasta de uploads
 
-Se necessário, crie manualmente uma pasta uploads na raiz do projeto para armazenar arquivos recebidos pelo servidor.
+Caso ainda não exista, crie manualmente uma pasta uploads na raiz do projeto para armazenar arquivos recebidos pelo servidor.
 
 ## Estrutura de arquivos principais
 
@@ -193,14 +193,13 @@ Este arquivo armazena variáveis de ambiente cruciais para a configuração do s
 
 ```plaintext
 DB_USER="root"
-DB_PASS="asdf1234"
-KEYCLOAK_DB_PASSWORD="asdf1234"
+DB_PASS="#######"
+KEYCLOAK_DB_PASSWORD="########"
 DB_URL="mongodb://${DB_USER}:${DB_PASS}@localhost:64000/INBCM?authSource=admin"
 QUEUE_URL="amqp://guest:guest@localhost"
-JWT_SECRET="JwMHWAGtwjeQWKr2yYMu7vsXHaIdoKIN"
+JWT_SECRET="#####"
 PUBLIC_SITE_URL="https://localhost:5174/"
 ADMIN_SITE_URL="https://localhost:5173/"
-Como Adicionar Novos Modelos e Controladores
 ```
 
 ## Estrutura de arquivos e códigos importantes
