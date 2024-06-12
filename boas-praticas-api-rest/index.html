@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../guia-dev-backend/">
+        <link rel="prev" href="../recomendacoes/">
       
-      
-        <link rel="next" href="../boas-praticas-api-rest/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>Recomendações - INBCM</title>
+        <title>Boas práticas para API REST - INBCM</title>
       
     
     
@@ -62,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#orientacoes-para-o-envio-de-codigo-em-um-repositorio" class="md-skip">
+        <a href="#boas-praticas-para-api-rest-no-projeto-inbcm" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -96,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Recomendações
+              Boas práticas para API REST
             
           </span>
         </div>
@@ -219,11 +217,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../recomendacoes/" class="md-tabs__link">
         
   
     
@@ -238,9 +234,11 @@
         
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../boas-praticas-api-rest/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
     
@@ -351,6 +349,26 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../recomendacoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Recomendações
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -367,7 +385,7 @@
           
   
   <span class="md-ellipsis">
-    Recomendações
+    Boas práticas para API REST
   </span>
   
 
@@ -378,7 +396,7 @@
         
   
   <span class="md-ellipsis">
-    Recomendações
+    Boas práticas para API REST
   </span>
   
 
@@ -400,36 +418,183 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#qualidade-do-codigo" class="md-nav__link">
+  <a href="#introducao" class="md-nav__link">
     <span class="md-ellipsis">
-      Qualidade do código
+      Introdução
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#clareza-do-codigo" class="md-nav__link">
+  <a href="#conceitos-basicos" class="md-nav__link">
     <span class="md-ellipsis">
-      Clareza do código
+      Conceitos básicos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conceitos básicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Path
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#seguranca-do-codigo" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
     <span class="md-ellipsis">
-      Segurança do código
+      Resources
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#query-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query string
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#processo-de-envio-de-codigo" class="md-nav__link">
+  <a href="#boas-praticas-em-apis-rest" class="md-nav__link">
     <span class="md-ellipsis">
-      Processo de Envio de Código
+      Boas práticas em APIs REST
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boas práticas em APIs REST">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#urls-claras-e-intuitivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      URLs claras e intuitivas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#padronizacao-de-metodos-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      Padronização de métodos HTTP
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-de-status-http-apropriados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Códigos de status HTTP apropriados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-de-sucesso-2xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Códigos de sucesso (2xx)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-de-redirecionamento-3xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Códigos de redirecionamento (3xx)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-de-erro-do-cliente-4xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Códigos de erro do cliente (4xx)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigos-de-erro-do-servidor-5xx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Códigos de erro do servidor (5xx)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#suporte-para-filtragem-paginacao-e-ordenacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Suporte para filtragem, paginação e ordenação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seguranca-e-autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Segurança e autenticação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentacao-clara-e-abrangente" class="md-nav__link">
+    <span class="md-ellipsis">
+      Documentação clara e abrangente
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versionamento-da-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Versionamento da API
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#negociacao-de-conteudo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Negociação de conteúdo
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusão
     </span>
   </a>
   
@@ -439,26 +604,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../boas-praticas-api-rest/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Boas práticas para API REST
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -478,39 +623,59 @@
                   
 
 
-<h1 id="orientacoes-para-o-envio-de-codigo-em-um-repositorio">Orientações para o envio de código em um repositório</h1>
-<h2 id="qualidade-do-codigo">Qualidade do código</h2>
-<ul>
-<li>Padronização de Estilo: Use um guia de estilo específico para a linguagem em que está trabalhando (por exemplo, PEP 8 para Python, StandardJS para JavaScript). Utilize ferramentas de formatação automática como Prettier, ESLint, ou Black para garantir a consistência.</li>
-<li>Comentários: Comente seu código onde necessário, explicando o propósito e a lógica complexa. Evite comentários óbvios e mantenha-os atualizados.</li>
-<li>Revisão de Código: Sempre faça revisão de código antes do merge. Utilize pull requests para permitir que outros revisem seu código e forneçam feedback.</li>
-<li>Testes Automatizados: Inclua testes unitários, de integração e, se possível, de ponta a ponta. Use frameworks de teste apropriados como JUnit, pytest, ou Jest. Garanta que todos os testes passem antes de enviar o código.</li>
-<li>Documentação: Documente funções, classes e módulos. Forneça um README atualizado explicando como o código funciona, como configurá-lo e como executá-lo.</li>
-<li>Refatoração: Refatore código regularmente para melhorar a estrutura e a eficiência. Não adie a limpeza de código técnico, pois isso pode levar a problemas maiores no futuro.</li>
-</ul>
-<h2 id="clareza-do-codigo">Clareza do código</h2>
-<ul>
-<li>Nomes Descritivos: Use nomes de variáveis, funções e classes que sejam descritivos e que façam sentido no contexto. Evite abreviações excessivas e nomes genéricos.</li>
-<li>Simplicidade: Mantenha o código o mais simples possível. Evite complexidade desnecessária e divida tarefas grandes em funções ou classes menores e mais manejáveis.</li>
-<li>Estrutura Clara: Organize o código de forma lógica e consistente. Siga uma estrutura de projeto que faça sentido para a equipe e para o tipo de projeto.</li>
-<li>Modularidade: Escreva código modular. Funções e classes devem ser projetadas para fazer uma coisa bem feita e ser reutilizáveis em diferentes contextos.</li>
-</ul>
-<h2 id="seguranca-do-codigo">Segurança do código</h2>
-<ul>
-<li>Validação e Saneamento de Entrada: Sempre valide e sanitize entradas do usuário para evitar vulnerabilidades como SQL injection e Cross-Site Scripting (XSS).</li>
-<li>Gerenciamento de Dependências: Use dependências de fontes confiáveis e mantenha-as atualizadas. Verifique regularmente por vulnerabilidades conhecidas nas dependências.</li>
-<li>Gerenciamento de Segredos: Nunca coloque segredos, como chaves de API ou credenciais, diretamente no código. Utilize variáveis de ambiente ou gerenciadores de segredos.</li>
-<li>Autenticação e Autorização: Implemente e verifique autenticação e autorização adequadas para proteger recursos e dados sensíveis.</li>
-<li>Tratamento de Erros: Trate exceções de maneira adequada e nunca exponha mensagens de erro sensíveis para o usuário final. Log de erros deve ser implementado de forma que seja útil para debugging e não comprometa a segurança.</li>
-<li>Auditoria e Log: Implemente auditoria e log para monitorar atividades suspeitas e ajudar na investigação de incidentes.</li>
-</ul>
-<h2 id="processo-de-envio-de-codigo">Processo de Envio de Código</h2>
-<ul>
-<li>Commit Messages: Escreva mensagens de commit claras e significativas. Cada commit deve abordar uma mudança lógica específica e a mensagem deve explicar o "porquê" da mudança.</li>
-<li>Branching e Merging: Use uma estratégia de branching clara (por exemplo, Git Flow). Garanta que o código na branch de desenvolvimento esteja sempre em um estado que pode ser integrado na branch principal.</li>
-<li>Revisão de Código: Utilize pull requests para submeter mudanças. Cada pull request deve ser revisado por um ou mais membros da equipe antes de ser mesclado.</li>
-<li>Automatização: Configure pipelines de CI/CD para automatizar a construção, os testes e a implantação do código. Isso ajuda a detectar problemas mais cedo e facilita a entrega contínua.</li>
-</ul>
+<h1 id="boas-praticas-para-api-rest-no-projeto-inbcm">Boas práticas para API REST no Projeto INBCM</h1>
+<h2 id="introducao">Introdução</h2>
+<p>Este documento destina-se a orientar desenvolvedores e arquitetos de software envolvidos no projeto INBCM na criação e manutenção de APIs REST. As APIs REST são fundamentais para a integração de diferentes sistemas e serviços, oferecendo uma interface clara e eficiente para o acesso a recursos via HTTP. A adesão às boas práticas descritas aqui visa garantir que as APIs sejam seguras, escaláveis, e fáceis de usar.</p>
+<h2 id="conceitos-basicos">Conceitos básicos</h2>
+<h3 id="path">Path</h3>
+<p>O "path" é a parte da URL que identifica o recurso na API. Ele é fundamental para o roteamento das requisições até os controladores apropriados. Por exemplo, na URL <code>https://api.inbcm.com.br/users</code>, o path é <code>/users</code>.</p>
+<h3 id="resources">Resources</h3>
+<p>"Resources" ou recursos representam entidades ou objetos dentro do domínio da aplicação. Uma API REST deve ser projetada em torno de recursos, que são manipulados através de métodos HTTP. Por exemplo, um recurso pode ser um usuário, acessado via <code>GET /users/{id}</code> para obter informações desse usuário.</p>
+<h3 id="query-string">Query string</h3>
+<p>A "query string" é utilizada para passar parâmetros adicionais para a API, como filtros, ordenação ou paginação. Esses parâmetros são adicionados à URL após um <code>?</code>. Por exemplo, <code>GET /users?active=true&amp;sort=asc</code> filtra por usuários ativos e os ordena em ordem ascendente.</p>
+<h2 id="boas-praticas-em-apis-rest">Boas práticas em APIs REST</h2>
+<h3 id="urls-claras-e-intuitivas">URLs claras e intuitivas</h3>
+<p>Utilize URLs que sejam intuitivas e fáceis de entender, o que facilita a compreensão e o uso da API. Prefira o uso de substantivos e mantenha um padrão consistente em toda a API.</p>
+<h3 id="padronizacao-de-metodos-http">Padronização de métodos HTTP</h3>
+<p>Use os métodos HTTP de maneira padronizada:
+- <code>GET</code> para buscar dados.
+- <code>POST</code> para criar novos recursos.
+- <code>PUT</code> para atualizar recursos inteiramente.
+- <code>PATCH</code> para atualizações parciais.
+- <code>DELETE</code> para excluir recursos.</p>
+<h3 id="codigos-de-status-http-apropriados">Códigos de status HTTP apropriados</h3>
+<p>Empregue códigos de status HTTP para comunicar o resultado das operações claramente:</p>
+<h3 id="codigos-de-sucesso-2xx">Códigos de sucesso (2xx)</h3>
+<p><code>200 OK</code>: Indica que a requisição foi bem-sucedida. É o código mais comum para uma resposta HTTP bem-sucedida, especialmente após um GET.</p>
+<p><code>201 Created</code>: Usado quando um novo recurso é criado com sucesso, típico após um POST.</p>
+<p><code>202 Accepted</code>: Indica que a requisição foi aceita para processamento, mas o processamento ainda não foi concluído. Comum em operações que são processadas de forma assíncrona.</p>
+<p><code>204 No Content</code>: Resposta para uma operação bem-sucedida que não retorna dados, como após um DELETE.</p>
+<h3 id="codigos-de-redirecionamento-3xx">Códigos de redirecionamento (3xx)</h3>
+<p><code>301 Moved Permanently</code>: Este e outros códigos de redirecionamento são menos comuns em APIs mas úteis para indicar que um recurso foi movido permanentemente para uma nova URL.</p>
+<p><code>303 See Other</code>: Indica que o recurso pode ser encontrado em outra URI usando o método GET.</p>
+<h3 id="codigos-de-erro-do-cliente-4xx">Códigos de erro do cliente (4xx)</h3>
+<p><code>400 Bad Request</code>: Indica que o servidor não pode ou não vai processar a requisição devido a algo que foi percebido como um erro do cliente (e.g., formato de requisição inválido).</p>
+<p><code>401 Unauthorized</code>: Usado quando a autenticação é necessária e falhou ou ainda não foi fornecida.</p>
+<p><code>403 Forbidden</code>: O servidor entendeu a requisição, mas se recusa a autorizá-la. Diferente do 401, nesse caso a autenticação não faria diferença.</p>
+<p><code>404 Not Found</code>: O servidor não encontrou nada que corresponda ao URI da requisição.</p>
+<p><code>405 Method Not Allowed</code>: Um método solicitado é conhecido pelo servidor, mas foi desativado e não pode ser usado.</p>
+<p><code>409 Conflict</code>: Indica que a requisição não pôde ser completada devido a um conflito com o estado atual do recurso.</p>
+<h3 id="codigos-de-erro-do-servidor-5xx">Códigos de erro do servidor (5xx)</h3>
+<p><code>500 Internal Server Error</code>: Um erro genérico que indica que o servidor encontrou uma condição inesperada.</p>
+<p><code>501 Not Implemented</code>: O servidor não suporta a funcionalidade necessária para atender a requisição.</p>
+<p><code>503 Service Unavailable</code>: O servidor está incapaz de lidar com a requisição devido a uma manutenção temporária ou sobrecarga.</p>
+<h3 id="suporte-para-filtragem-paginacao-e-ordenacao">Suporte para filtragem, paginação e ordenação</h3>
+<p>Forneça mecanismos para filtragem, paginação e ordenação dos dados, o que melhora a usabilidade e eficiência da API especialmente em conjuntos de dados grandes.</p>
+<h3 id="seguranca-e-autenticacao">Segurança e autenticação</h3>
+<p>Garanta a segurança da API implementando autenticação e autorização adequadas. Utilize protocolos como OAuth, tokens JWT, e sempre use HTTPS.</p>
+<h3 id="documentacao-clara-e-abrangente">Documentação clara e abrangente</h3>
+<p>Forneça uma documentação detalhada e acessível para a API, incluindo informações sobre endpoints, parâmetros, formatos de resposta e exemplos de uso.</p>
+<h3 id="versionamento-da-api">Versionamento da API</h3>
+<p>Implemente o versionamento da API para permitir a evolução da interface sem impactar negativamente os clientes existentes. Utilize URLs versionadas, como <code>/api/v1</code>.</p>
+<h3 id="negociacao-de-conteudo">Negociação de conteúdo</h3>
+<p>Suporte diferentes formatos de resposta, como JSON e XML, utilizando cabeçalhos HTTP para negociação de conteúdo (<code>Accept</code> e <code>Content-Type</code>).</p>
+<h2 id="conclusao">Conclusão</h2>
+<p>Seguindo estas práticas recomendadas, a API REST do projeto INBCM será robusta, segura e fácil de integrar, promovendo uma arquitetura escalável e flexível. A adesão a esses princípios assegura que nossa API atenda às necessidades dos desenvolvedores e contribua positivamente para o sucesso do projeto.</p>
 
 
 
