@@ -1,4 +1,4 @@
-site_name: INBCM
+site_name: Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)
 theme:
   name: 'material'
   language: 'pt'
@@ -34,9 +34,10 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Arquitetura INBCM: arquitetura.md
+  - Arquitetura: arquitetura.md
   - Guia para devs - backend: guia-dev-backend.md
   - Recomendações: recomendacoes.md
   - Boas práticas para API REST: boas-praticas-api-rest.md
+  - Manual: manual.md
   
   

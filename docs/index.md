@@ -1,4 +1,4 @@
-# Documentação do Projeto INBCM
+# Documentação do projeto
 
 ## Visão geral
 
