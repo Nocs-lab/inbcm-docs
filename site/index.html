@@ -858,7 +858,7 @@
     }
 
     File "1" -- "*" Issue : contains
-    Declaration "1" -- "1" User : has
+    Declaration "*" -- "1" User : has
     Declaration "1" -- "1" Museum : has
     Declaration "1" -- "1" File : archival
     Declaration "1" -- "1" File : bibliographic
@@ -940,6 +940,7 @@
 <li><code>museums</code>: Lista de museus geridos pelo usuário.</li>
 <li><strong>Relacionamentos</strong>:</li>
 <li>Cada <code>User</code> possui um <code>Profile</code> e pode gerenciar múltiplos <code>Museum</code>.</li>
+<li>Cada <code>User</code> pode declarar várias <code>Declaration</code>, incluindo retificadoras.</li>
 <li>Cada <code>User</code> também está associado a um <code>Address</code>.</li>
 </ul>
 <h4 id="profile">Profile</h4>

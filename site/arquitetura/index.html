@@ -576,9 +576,10 @@
 <h2 id="objetivos-da-arquitetura">Objetivos da arquitetura</h2>
 <p>A arquitetura do projeto INBCM foi concebida para ser modular, robusta e escalável, visando atender a uma ampla gama de requisitos e cenários de uso. Buscamos criar uma plataforma que possa evoluir e se adaptar às necessidades futuras, mantendo a integridade, segurança e acessibilidade dos dados.</p>
 <pre class="mermaid"><code>graph LR
-    A(Frontend User - ReactJS) &lt;--&gt; E{Backend - NodeJs}
-    C(Frontend Admin - ReactJS) &lt;--&gt; E{Backend - NodeJs}
-    D(Tainacan - Wordpress) &lt;--&gt; E{Backend - NodeJs}
+    A(Frontend User - ReactJS) &lt;--&gt; L{Balanceador de carga}
+    C(Frontend Admin - ReactJS) &lt;--&gt; L{Balanceador de carga}
+    D(Tainacan - Wordpress) &lt;--&gt; L{Balanceador de carga}
+    L{Balanceador de carga} &lt;--&gt; E{Backend - NodeJs}
     E{Backend - NodeJs} &lt;--&gt; F[(Mongo)]
     E{Backend - NodeJs} &lt;--&gt; G(KeyCloak)
     G(KeyCloak) &lt;--&gt; H(API do MuseusBR)
