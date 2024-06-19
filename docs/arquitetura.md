@@ -12,9 +12,9 @@ graph LR
     L{Balanceador de carga} <--> E{Backend - NodeJs}
     E{Backend - NodeJs} <--> F[(Mongo)]
     E{Backend - NodeJs} <--> G(KeyCloak)
-    G(KeyCloak) <--> H(API do MuseusBR)
-    E{Backend - NodeJs} <--> I(RabbitMQ)
-    I(RabbitMQ) --> J(Processador arquivos)
+    %%G(KeyCloak) <--> H(API do MuseusBR)
+    %%E{Backend - NodeJs} <--> I(RabbitMQ)
+    %%I(RabbitMQ) --> J(Processador arquivos)
 ```
 
 ## Componentes da arquitetura (Frontend)
@@ -40,7 +40,5 @@ A escolha do Node.js foi devido à sua eficiência com operações I/O assíncro
 ### Autenticação
 
 A autenticação dos usuários será gerenciada pelo Keycloak, que se integra ao serviço MuseusBR para verificar credenciais. Este processo garante que apenas usuários autorizados possam enviar inventários e acessar dados sensíveis.
-
-## Componentes da arquitetura (Funcionalidades Chave)
 
 
