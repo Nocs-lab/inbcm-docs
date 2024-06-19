@@ -20,7 +20,7 @@
     
     
       
-        <title>Guia para devs - backend - INBCM</title>
+        <title>Guia para devs - backend - Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)</title>
       
     
     
@@ -76,7 +76,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
-    <a href=".." title="INBCM" class="md-header__button md-logo" aria-label="INBCM" data-md-component="logo">
+    <a href=".." title="Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)" class="md-header__button md-logo" aria-label="Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -90,7 +90,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            INBCM
+            Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -192,7 +192,7 @@
   
     
   
-  Arquitetura INBCM
+  Arquitetura
 
       </a>
     </li>
@@ -235,6 +235,40 @@
   
 
       
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../boas-praticas-api-rest/" class="md-tabs__link">
+        
+  
+    
+  
+  Boas práticas para API REST
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../manual/" class="md-tabs__link">
+        
+  
+    
+  
+  Manual
+
+      </a>
+    </li>
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -259,13 +293,13 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="INBCM" class="md-nav__button md-logo" aria-label="INBCM" data-md-component="logo">
+    <a href=".." title="Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)" class="md-nav__button md-logo" aria-label="Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
-    INBCM
+    Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -301,7 +335,7 @@
         
   
   <span class="md-ellipsis">
-    Arquitetura INBCM
+    Arquitetura
   </span>
   
 
@@ -666,6 +700,46 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../boas-praticas-api-rest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Boas práticas para API REST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Manual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -699,11 +773,11 @@
 <h3 id="acessar-o-mongodb-via-mongo-express">Acessar o MongoDB via Mongo Express</h3>
 <ul>
 <li>URL: localhost:8081</li>
-<li>Usuário: admin</li>
-<li>Senha: admin</li>
+<li>Usuário: #####</li>
+<li>Senha: #####</li>
 </ul>
 <h3 id="criar-pasta-de-uploads">Criar pasta de uploads</h3>
-<p>Se necessário, crie manualmente uma pasta uploads na raiz do projeto para armazenar arquivos recebidos pelo servidor.</p>
+<p>Caso ainda não exista, crie manualmente uma pasta uploads na raiz do projeto para armazenar arquivos recebidos pelo servidor.</p>
 <h2 id="estrutura-de-arquivos-principais">Estrutura de arquivos principais</h2>
 <h3 id="composedevyaml">compose.dev.yaml</h3>
 <p>Este arquivo Docker Compose define a configuração para os serviços de desenvolvimento, incluindo MongoDB e Mongo Express:</p>
@@ -847,14 +921,13 @@
 <h2 id="env">.env</h2>
 <p>Este arquivo armazena variáveis de ambiente cruciais para a configuração do sistema, incluindo credenciais e URLs para diversos serviços:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>DB_USER=&quot;root&quot;
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>DB_PASS=&quot;asdf1234&quot;
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>KEYCLOAK_DB_PASSWORD=&quot;asdf1234&quot;
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>DB_PASS=&quot;#######&quot;
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>KEYCLOAK_DB_PASSWORD=&quot;########&quot;
 </span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>DB_URL=&quot;mongodb://${DB_USER}:${DB_PASS}@localhost:64000/INBCM?authSource=admin&quot;
 </span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>QUEUE_URL=&quot;amqp://guest:guest@localhost&quot;
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>JWT_SECRET=&quot;JwMHWAGtwjeQWKr2yYMu7vsXHaIdoKIN&quot;
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>JWT_SECRET=&quot;#####&quot;
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>PUBLIC_SITE_URL=&quot;https://localhost:5174/&quot;
 </span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>ADMIN_SITE_URL=&quot;https://localhost:5173/&quot;
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>Como Adicionar Novos Modelos e Controladores
 </span></code></pre></div>
 <h2 id="estrutura-de-arquivos-e-codigos-importantes">Estrutura de arquivos e códigos importantes</h2>
 <h3 id="serverts">./server.ts</h3>

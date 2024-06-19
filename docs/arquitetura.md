@@ -6,9 +6,10 @@ A arquitetura do projeto INBCM foi concebida para ser modular, robusta e escalá
 
 ```mermaid
 graph LR
-    A(Frontend User - ReactJS) <--> E{Backend - NodeJs}
-    C(Frontend Admin - ReactJS) <--> E{Backend - NodeJs}
-    D(Tainacan - Wordpress) <--> E{Backend - NodeJs}
+    A(Frontend User - ReactJS) <--> L{Balanceador de carga}
+    C(Frontend Admin - ReactJS) <--> L{Balanceador de carga}
+    D(Tainacan - Wordpress) <--> L{Balanceador de carga}
+    L{Balanceador de carga} <--> E{Backend - NodeJs}
     E{Backend - NodeJs} <--> F[(Mongo)]
     E{Backend - NodeJs} <--> G(KeyCloak)
     G(KeyCloak) <--> H(API do MuseusBR)

@@ -151,7 +151,7 @@ classDiagram
     }
 
     File "1" -- "*" Issue : contains
-    Declaration "1" -- "1" User : has
+    Declaration "*" -- "1" User : has
     Declaration "1" -- "1" Museum : has
     Declaration "1" -- "1" File : archival
     Declaration "1" -- "1" File : bibliographic
@@ -234,6 +234,7 @@ classDiagram
   - `museums`: Lista de museus geridos pelo usuário.
 - **Relacionamentos**:
   - Cada `User` possui um `Profile` e pode gerenciar múltiplos `Museum`.
+  - Cada `User` pode declarar várias `Declaration`, incluindo retificadoras.
   - Cada `User` também está associado a um `Address`.
 
 #### Profile
