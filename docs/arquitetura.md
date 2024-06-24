@@ -31,14 +31,9 @@ A aplicação web do INBCM serve como o ponto central para usuários que não ut
 
 A aplicação web de administração serve como uma plataforma para que funcionários do IBRAM possam gerenciar e monitorar os processos e dados do sistema, incluindo a revisão e validação de informações enviadas pelos museus.
 
-## Componentes da arquitetura (Backend)
-
-### Node.js
+### Backend Node.js
 
 A escolha do Node.js foi devido à sua eficiência com operações I/O assíncronas, sendo ideal para o backend que lidará com um volume significativo de requisições e processamento de dados em tempo real. O Node.js atua como a espinha dorsal da plataforma, gerenciando a lógica de aplicação, autenticação de usuários e interação com o banco de dados.
 
-### Autenticação
-
-A autenticação dos usuários será gerenciada pelo Keycloak, que se integra ao serviço MuseusBR para verificar credenciais. Este processo garante que apenas usuários autorizados possam enviar inventários e acessar dados sensíveis.
 
 

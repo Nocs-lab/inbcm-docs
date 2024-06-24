@@ -13,7 +13,7 @@ git clone https://github.com/Nocs-lab/inbcm-backend.git
 ```
 ### Criar o arquivo .env
 
-Na pasta do projeto, crie um arquivo .env e adicione as variáveis de ambiente conforme listado no final deste documento.
+Na pasta do projeto, caso ainda não exista, crie um arquivo .env e adicione as variáveis de ambiente conforme listado no final deste documento.
 
 ### Iniciar os containers docker para desenvolvimento
 
@@ -27,17 +27,34 @@ npm run start:docker:dev
 npm run dev
 ```
 
-### Acessar o MongoDB via Mongo Express
-
-* URL: localhost:8081
-* Usuário: #####
-* Senha: #####
-
 ### Criar pasta de uploads
 
 Caso ainda não exista, crie manualmente uma pasta uploads na raiz do projeto para armazenar arquivos recebidos pelo servidor.
 
-## Estrutura de arquivos principais
+**Observação**: A solução mais comum para o problema de escalabilidade de uploads de arquivos é utilizar um serviço de armazenamento em nuvem, ou seja, a abordagem de salvar arquivos diretamente no sistema de arquivos local do servidor não é escalável, especialmente quando você começa a lidar com um volume maior de uploads.
+
+## Estrutura de pastas e arquivos principais
+
+### A organização de pastas do projeto 
+
+```bash
+/backend-inbcm
+    /node_modules
+    /src
+        /controllers        
+        /models
+        /routes
+        /middlewares
+        /configs
+        /services
+        /scripts
+    /tests
+    .env
+    .gitignore
+    config.ts
+    package.json
+    README.md
+```
 
 ### compose.dev.yaml
 Este arquivo Docker Compose define a configuração para os serviços de desenvolvimento, incluindo MongoDB e Mongo Express:
