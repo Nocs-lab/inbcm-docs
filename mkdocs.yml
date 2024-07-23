@@ -35,9 +35,11 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Arquitetura: arquitetura.md
+  - Envio de declarações: envio-declaracoes.md
   - Guia para devs - backend: guia-dev-backend.md
   - Recomendações: recomendacoes.md
   - Boas práticas para API REST: boas-praticas-api-rest.md
   - Manual: manual.md
+ 
   
   
