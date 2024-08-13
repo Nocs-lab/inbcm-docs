@@ -32,14 +32,18 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
-nav:
-  - Home: index.md
-  - Arquitetura: arquitetura.md
-  - Envio de declarações: envio-declaracoes.md
-  - Guia para devs - backend: guia-dev-backend.md
-  - Recomendações: recomendacoes.md
-  - Boas práticas para API REST: boas-praticas-api-rest.md
-  - Manual: manual.md
- 
-  
-  
+nav:  
+  - Backend:
+      - Principal: index.md
+      - Modelo de dados: modelo-dados.md
+      - Envio de declarações: envio-declaracoes.md
+      - Guia para devs - backend: guia-dev-backend.md
+      - Endpoints: endpoints.md
+      - Testes: testes.md
+      - Guia de contribuição: guia-contribuicao.md
+  - Frontend:
+      - Guia para devs - frontend: guia-dev-frontend.md
+  - Ajuda:
+      - Manual: manual.md  
+      - Boas práticas para API REST: boas-praticas-api-rest.md
+      

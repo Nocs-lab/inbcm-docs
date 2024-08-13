@@ -46,7 +46,7 @@ Refere-se ao uso de tecnologias da informação e comunicação para automatizar
 
 A capacidade de diferentes sistemas e organizações trabalharem juntos, compartilhando dados e informações de maneira eficaz, o que é crucial para a integração dos dados dos museus em uma plataforma comum.
 
-## Diagrama de Caso de Uso
+## Diagrama de Caso de Uso (Funcionalidades)
 
 ```mermaid
 flowchart LR
@@ -68,264 +68,44 @@ flowchart LR
 
 O diagrama de caso de uso apresentado detalha as funções acessíveis para dois atores principais, "Usuário" e "Funcionário IBRAM". Para o "Usuário", as funcionalidades incluem gerenciamento completo de declarações, desde o preenchimento e envio até a visualização de detalhes e o download de recibos. Para o "Funcionário IBRAM", as funcionalidades focam na administração das declarações recebidas, visualização de indicadores de desempenho no dashboard e a habilidade de alterar o status das declarações. Este diagrama serve como uma ferramenta essencial para entender as interações entre usuários e sistema, facilitando o desenvolvimento e a operacionalização da plataforma.
 
-## Explicação do diagrama de classes
+## Arquitetura do projeto INBCM
 
-O diagrama de classes descrito abaixo tem como objetivo fornecer uma visão clara e estruturada da arquitetura das entidades do sistema. Ele detalha as principais entidades envolvidas e suas inter-relações, facilitando a compreensão dos mecanismos de dados e funcionalidades do sistema. Este diagrama é essencial tanto para novos desenvolvedores quanto para stakeholders, ajudando-os a visualizar a organização dos componentes e como eles interagem para suportar as operações do sistema.
+### Objetivos da arquitetura
 
-### Classes principais
+A arquitetura do projeto INBCM foi concebida para ser modular, robusta e escalável, visando atender a uma ampla gama de requisitos e cenários de uso. Buscamos criar uma plataforma que possa evoluir e se adaptar às necessidades futuras, mantendo a integridade, segurança e acessibilidade dos dados.
 
 ```mermaid
-classDiagram
-    class Permission {
-        +string id
-        +string name
-    }
-
-    class Profile {
-        +string id
-        +string name
-        +Permission[] permissions
-    }
-
-    class User {
-        +string name
-        +string email
-        +Profile profile
-        +string password
-        +Museum[] museuns
-    }
-
-    Profile "1" -- "*" Permission : contains
-    User "1" -- "1" Profile : has
-
-    class Museum {
-        +String codIbram
-        +String name
-        +String administrativeSphere
-        +Address address
-        +ObjectId user
-    }
-
-    class Address {
-        +String street
-        +String number
-        +String complement
-        +String neighborhood
-        +String zipCode
-        +String municipality
-        +String state
-    }
-
-    Museum "1" -- "1" Address : has
-    User "1" -- "*" Museum : contains
-    User "1" -- "1" Address : has
-
-    class Issue {
-        +int index
-        +string field
-    }
-
-    class File {
-        +string name
-        +string path
-        +string status
-        +Issue[] issues
-        +int quantityItems
-        +string? hashFile
-    }
-
-    class Declaration {
-        +Museum museum
-        +string declarationYear
-        +User user
-        +string declarationHash
-        +Date creationDate
-        +int? totalItemsDeclared
-        +string status
-        +File archival
-        +File bibliographic
-        +File museological
-        +boolean rectification
-        +ObjectId rectificationRef
-        +boolean pending
-    }
-
-    File "1" -- "*" Issue : contains
-    Declaration "*" -- "1" User : has
-    Declaration "1" -- "1" Museum : has
-    Declaration "1" -- "1" File : archival
-    Declaration "1" -- "1" File : bibliographic
-    Declaration "1" -- "1" File : museological
-
-    class CulturalItem {
-        +String title
-        +String reproductionConditions
-        +String[] relatedMedia
-    }
-
-    class Bibliographic {
-        +Declaration declaration
-        +String recordNumber
-        +String otherNumbers
-        +String situation
-        +String type
-        +String identificationResponsibility
-        +String productionLocation
-        +String publisher
-        +String date
-        +String physicalDimension
-        +String materialTechnique
-        +String binding
-        +String descriptiveSummary
-        +String conservationState
-        +String mainSubject
-        +String chronologicalSubject
-        +String geographicalSubject
-    }
-
-    Declaration "1" -- "*" CulturalItem : contains
-    CulturalItem <|-- Bibliographic : extends
-
-    class Archival {
-        +String referenceCode
-        +String date
-        +Number descriptionLevel
-        +String dimensionsSupport
-        +String producerName
-        +String administrativeHistoryBiography
-        +String archivalHistory
-        +String provenance
-        +String scopeContent
-        +String arrangementSystem
-        +String locationOriginals
-        +String conservationNotes
-        +String accessPointsIndexingSubjects
-    }
-
-    CulturalItem <|-- Archival : extends
-
-    class Museological {
-        +String registrationNumber
-        +String otherNumbers
-        +String situation
-        +String denomination
-        +String author
-        +String classification
-        +String descriptiveSummary
-        +String dimensions
-        +String materialTechnique
-        +String conservationState
-        +String productionLocation
-        +String productionDate
-    }
-
-    CulturalItem <|-- Museological : extends
-
+graph LR
+    A(Frontend User - ReactJS) <--> L{Balanceador de carga}
+    C(Frontend Admin - ReactJS) <--> L{Balanceador de carga}
+    D(Tainacan - Wordpress) <--> L{Balanceador de carga}
+    L{Balanceador de carga} <--> E{Backend - NodeJs}
+    E{Backend - NodeJs} <--> F[(Mongo)]
+    E{Backend - NodeJs} <--> G(MuseusBR)
+    %%G(MuseusBR) <--> H(API do MuseusBR)
+    %%E{Backend - NodeJs} <--> I(RabbitMQ)
+    %%I(RabbitMQ) --> J(Processador arquivos)
 ```
-### Entidades e relacionamentos
 
-#### User
-- **Descrição**: Representa os usuários do sistema.
-- **Atributos**:
-  - `name`: Nome do usuário.
-  - `email`: E-mail do usuário.
-  - `profile`: Perfil associado ao usuário.
-  - `password`: Senha para autenticação do usuário.
-  - `museums`: Lista de museus geridos pelo usuário.
-- **Relacionamentos**:
-  - Cada `User` possui um `Profile` e pode gerenciar múltiplos `Museum`.
-  - Cada `User` pode declarar várias `Declaration`, incluindo retificadoras.
-  - Cada `User` também está associado a um `Address`.
+### Componentes da arquitetura (Frontend)
 
-#### Profile
-- **Descrição**: Armazena informações sobre perfis que definem as permissões dos usuários.
-- **Atributos**:
-  - `name`: Nome do perfil.
-  - `permissions`: Permissões atribuídas ao perfil.
-- **Relacionamentos**:
-  - Cada `Profile` contém várias `Permission`.
+#### Um plugin de extensão do Tainacan
 
-#### Permission
-- **Descrição**: Define controles de acesso dentro do sistema.
-- **Atributos**:
-  - `name`: Nome descritivo da permissão.
+O plugin para extensão do Tainacan permitirá aos museus e instituições culturais integrarem suas coleções ao INBCM diretamente do painel de administração do Tainacan. Este plugin oferece uma interface intuitiva para o envio de inventários e consulta de dados, garantindo uma experiência de usuário uniforme e integrada.
 
-#### Museum
-- **Descrição**: Representa um museu dentro do sistema.
-- **Atributos**:
-  - `codIbram`: Código de identificação no IBRAM.
-  - `name`: Nome do museu.
-  - `administrativeSphere`: Esfera administrativa do museu.
-  - `address`: Endereço físico do museu.
-- **Relacionamentos**:
-  - Cada `Museum` possui um `Address`.
-  - Cada `User` pode gerenciar múltiplos `Museum`.
+#### Aplicação Web INBCM
 
-#### Address
-- **Descrição**: Detalhes do endereço físico.
-- **Atributos**:
-  - `street`: Rua.
-  - `number`: Número.
-  - `complement`: Complemento.
-  - `neighborhood`: Bairro.
-  - `zipCode`: CEP.
-  - `municipality`: Município.
-  - `state`: Estado.
-- **Relacionamentos**:
-  - Usado por `Museum` e `User` para detalhar localizações.
+A aplicação web do INBCM serve como o ponto central para usuários que não utilizam o Tainacan. Aqui, os usuários podem baixar templates de inventário, preencher e submeter seus arquivos para análise e inclusão no sistema. Além disso, esta plataforma permite a consulta de itens museológicos já catalogados, oferecendo filtros e ferramentas de pesquisa avançadas.
 
-#### Declaration
-- **Descrição**: Representa uma declaração formal relacionada a um museu.
-- **Atributos**:
-  - `museum`: Museu relacionado à declaração.
-  - `declarationYear`: Ano da declaração.
-  - `user`: Usuário que fez a declaração.
-  - `declarationHash`: Hash da declaração.
-  - `creationDate`: Data de criação da declaração.
-  - `totalItemsDeclared`: Total de itens declarados.
-  - `status`: Status da declaração.
-  - `archival`: Arquivo arquivístico associado.
-  - `bibliographic`: Arquivo bibliográfico associado.
-  - `museological`: Arquivo museológico associado.
-  - `rectification`: Indica se é uma retificação.
-  - `rectificationRef`: Referência à declaração original, se for uma retificação.
-  - `pending`: Indica se está pendente.
-- **Relacionamentos**:
-  - Cada `Declaration` está vinculada a um `User` e um `Museum` e contém arquivos específicos.
+#### Aplicação Web de administração para funcionários do IBRAM
 
-#### File
-- **Descrição**: Gerencia informações sobre arquivos específicos associados a declarações.
-- **Atributos**:
-  - `name`: Nome do arquivo.
-  - `path`: Caminho de armazenamento do arquivo.
-  - `status`: Status atual do arquivo.
-  - `issues`: Problemas ou tarefas associadas ao arquivo.
-  - `quantityItems`: Quantidade de itens no arquivo.
-  - `hashFile`: Hash criptográfico opcional do arquivo para verificação.
-- **Relacionamentos**:
-  - Cada `File` pode conter várias `Issue`.
+A aplicação web de administração serve como uma plataforma para que funcionários do IBRAM possam gerenciar e monitorar os processos e dados do sistema, incluindo a revisão e validação de informações enviadas pelos museus.
 
-#### Issue
-- **Descrição**: Representa questões específicas ou tarefas relacionadas a um arquivo.
-- **Atributos**:
-  - `index`: Índice da questão.
-  - `field`: Campo relacionado à questão no arquivo.
+#### Backend Node.js
 
-#### CulturalItem
-- **Descrição**: Classe base para diferentes tipos de itens culturais, que podem incluir detalhes bibliográficos, arquivísticos e museológicos.
-- **Atributos**:
-  - `title`: Título do item cultural.
-  - `reproductionConditions`: Condições de reprodução do item.
-  - `relatedMedia`: Mídia relacionada ao item.
-- **Relacionamentos**:
-  - `CulturalItem` é estendido pelas classes `Bibliographic`, `Archival` e `Museological`.
+A escolha do Node.js foi devido à sua eficiência com operações I/O assíncronas, sendo ideal para o backend que lidará com um volume significativo de requisições e processamento de dados em tempo real. O Node.js atua como a espinha dorsal da plataforma, gerenciando a lógica de aplicação, autenticação de usuários e interação com o banco de dados.
 
-#### Bibliographic, Archival, Museological
-- **Descrição**: Extensões especializadas de `CulturalItem` adaptadas às necessidades específicas de documentos bibliográficos, arquivísticos ou museológicos.
-- **Atributos** e **Relacionamentos**:
-  - Cada classe inclui atributos detalhados específicos para cada tipo e estende a classe base `CulturalItem`.
-
-### Considerações Finais
+## Considerações finais
 
 Este documento serve como um guia essencial para o entendimento e a implementação do projeto INBCM, que envolve uma colaboração significativa entre o IBRAM e o NOCS Lab do IFRN. O objetivo principal é melhorar a gestão dos bens culturais musealizados através de uma plataforma de automação informacional, promovendo uma gestão mais eficaz e a preservação do patrimônio cultural brasileiro.
 

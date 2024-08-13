@@ -10,10 +10,11 @@ Para configurar o ambiente de desenvolvimento e iniciar o servidor de desenvolvi
 
 ```bash
 git clone https://github.com/Nocs-lab/inbcm-backend.git
+pnpm install
 ```
 ### Criar o arquivo .env
 
-Na pasta do projeto, caso ainda não exista, crie um arquivo .env e adicione as variáveis de ambiente conforme listado no final deste documento.
+Na pasta do projeto, caso ainda não exista, crie um arquivo .env e adicione as variáveis de ambiente.
 
 ### Iniciar os containers docker para desenvolvimento
 
@@ -31,7 +32,7 @@ npm run dev
 
 Caso ainda não exista, crie manualmente uma pasta uploads na raiz do projeto para armazenar arquivos recebidos pelo servidor.
 
-**Observação**: A solução mais comum para o problema de escalabilidade de uploads de arquivos é utilizar um serviço de armazenamento em nuvem, ou seja, a abordagem de salvar arquivos diretamente no sistema de arquivos local do servidor não é escalável, especialmente quando você começa a lidar com um volume maior de uploads.
+**Observação**: A solução mais comum para o problema de escalabilidade de uploads de arquivos é utilizar um serviço de armazenamento em nuvem, ou seja, a abordagem de salvar arquivos diretamente no sistema de arquivos local do servidor não é escalável, especialmente quando você começa a lidar com um volume maior de uploads. **Nesse sentido, foi utilizado a biblioteca MINIO que disponibiliza uma API para gerência de arquivos, semelhante a utilizada pelo S3**. 
 
 ## Estrutura de pastas e arquivos principais
 
@@ -39,112 +40,184 @@ Caso ainda não exista, crie manualmente uma pasta uploads na raiz do projeto pa
 
 ```bash
 /backend-inbcm
-    /node_modules
     /src
-        /controllers        
+        /controllers  
+        /db
+        /enums      
+        /middlewares
         /models
         /routes
-        /middlewares
-        /configs
-        /services
-        /scripts
-    /tests
-    .env
-    .gitignore
+        /scripts        
+        /service
+        /templates
+        /tests
+        /types
+        /utils
+    app.ts
     config.ts
+    msgpack.ts
+    openapi.yaml
+    server.ts
+    swagger.ts
+    .env
+    .gitignore    
     package.json
     README.md
 ```
 
-### compose.dev.yaml
+### compose.yaml
 Este arquivo Docker Compose define a configuração para os serviços de desenvolvimento, incluindo MongoDB e Mongo Express:
 
 ```yaml
+version: '3.8'
+
 services:
   mongo:
+    image: mongo
     ports:
-      - "64000:27017"
+      - "27018:27017"  # Alterado para uma porta diferente
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
+      MONGO_INITDB_DATABASE: INBCM
+    env_file:
+      - .env
+    networks:
+      - mynetwork
 
   mongo-express:
     image: mongo-express
     ports:
-      - 8081:8081
+      - "8081:8081"
     environment:
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: admin
-      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_MONGODB_PORT: 27018
       ME_CONFIG_MONGODB_ADMINUSERNAME: ${DB_USER}
       ME_CONFIG_MONGODB_ADMINPASSWORD: ${DB_PASS}
       ME_CONFIG_MONGODB_SERVER: mongo
     depends_on:
       - mongo
+    networks:
+      - mynetwork
+
+  minio:
+    image: minio/minio
+    volumes:
+      - "minio:/data"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
+    networks:
+      - mynetwork
+    command: server /data --console-address :9001
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+  setup-minio:
+    image: minio/mc
+    depends_on:
+      - minio
+    networks:
+      - mynetwork
+    entrypoint:
+      - sh
+      - -c
+      - |
+        until mc alias set minio http://minio:9000 ${MINIO_USER} ${MINIO_PASSWORD}; do
+          sleep 0.5
+        done
+        mc admin user svcacct add minio ${MINIO_USER} --access-key ${MINIO_ACCESS_KEY} --secret-key ${MINIO_SECRET_KEY}
+        mc mb minio/inbcm
+
+networks:
+  mynetwork:
+
+volumes:
+  mongo-data:
+  minio:
 ```
 
 ## package.json
 Define as dependências, scripts e configurações do projeto Node.js.
 ```yaml
 {
-  "name": "inbcm-uploud-planilha-mongo",
+  "name": "inbcm-backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "dev": "nodemon server.ts",
-    "start:docker:dev": "docker compose -f compose.yaml -f compose.dev.yaml up",
-    "build": "sucrase --transforms typescript,imports -d dist .",
-    "start": "sucrase-node server.ts",
+    "dev": "concurrently \"docker compose up\" \"nodemon src/server.ts\"",
+    "build": "sucrase --transforms typescript,imports -d dist ./src",
+    "start": "node dist/server.js",
     "create:admin-user": "sucrase-node scripts/createAdminUser.ts",
-    "create:data": "sucrase-node scripts/generateMockData.ts",
-    "list:users": "sucrase-node scripts/listUsers.ts"
-  },
+    "create:data": "sucrase-node src/scripts/generateMockData.ts",
+    "list:users": "sucrase-node src/scripts/listUsers.ts",
+    "prepare": "[[ $NODE_ENV == 'development' ]] && husky install || true"},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@faker-js/faker": "^8.4.1",
+    "@kaciras/deasync": "^1.0.4",
     "@node-rs/argon2": "^1.8.3",
-    "amqplib": "^0.10.4",
+    "body-parser": "^1.20.2",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "crypto": "^1.0.1",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "dotenv-expand": "^11.0.6",
-    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
-    "fastest-validator": "^1.18.0",
+    "express-openapi-validator": "^5.2.0",
+    "express-rate-limit": "^7.3.1",
     "helmet": "^7.1.0",
-    "html-pdf": "^3.0.1",
-    "inquirer": "^9.2.22",
+    "inbcm-xlsx-validator": "github:vadolasi/inbcm-xlsx-validator",
+    "inquirer": "^9.3.5",
+    "jest-mock": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.4.0",
+    "mongoose": "^8.5.1",
     "mongoose-sequence": "^6.0.1",
     "morgan": "^1.10.0",
-    "msgpackr": "^1.10.2",
+    "msgpackr": "^1.11.0",
     "multer": "1.4.5-lts.1",
-    "pdfkit": "^0.15.0",
-    "puppeteer": "^22.10.0",
-    "sucrase": "^3.35.0",
+    "pdfmake": "^0.2.10",
+    "raw-body": "^2.5.2",
+    "sanitize-html": "^2.13.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "uuidv4": "^6.2.13",
     "xlsx": "^0.18.5",
+    "yaml": "^2.4.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@eslint/eslintrc": "^3.1.0",
-    "@eslint/js": "^9.3.0",
+    "@eslint/js": "^9.7.0",
+    "@faker-js/faker": "^8.4.1",
+    "@jest/globals": "^29.7.0",
     "@types/amqplib": "^0.10.5",
     "@types/compression": "^1.7.5",
     "@types/cookie-parser": "^1.4.7",
     "@types/cors": "^2.8.17",
-    "@types/ejs": "^3.1.5",
     "@types/express": "^4.17.21",
     "@types/html-pdf": "^3.0.3",
+    "@types/jest": "^29.5.12",
     "@types/jsonwebtoken": "^9.0.6",
+    "@types/mongoose": "^5.11.97",
     "@types/morgan": "^1.9.9",
     "@types/multer": "^1.4.11",
-    "@types/node": "^20.12.12",
-    "@types/pdfkit": "^0.13.4",
+    "@types/node": "^20.14.11",
+    "@types/pdfmake": "^0.2.9",
+    "@types/sanitize-html": "^2.11.0",
+    "@types/supertest": "^6.0.2",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "commitizen": "^4.3.0",
     "concurrently": "^8.2.2",
@@ -154,15 +227,20 @@ Define as dependências, scripts e configurações do projeto Node.js.
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-prettier": "^5.1.3",
-    "eslint-plugin-promise": "^6.2.0",
-    "globals": "^15.3.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.5",
-    "nodemon": "^3.1.1",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-promise": "^6.4.0",
+    "globals": "^15.8.0",
+    "husky": "^9.1.0",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.7",
+    "nodemon": "^3.1.4",
     "prettier": "3.2.5",
+    "sucrase": "^3.35.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^7.16.1"
   },
   "lint-staged": {
     "*.{ts,js}": "eslint --cache --fix"
@@ -173,7 +251,6 @@ Define as dependências, scripts e configurações do projeto Node.js.
     }
   }
 }
-
 ```
 
 Os scripts definidos no `package.json` facilitam a execução de tarefas comuns de desenvolvimento e operação diretamente através do npm. Aqui estão alguns dos scripts mais importantes:
@@ -247,28 +324,50 @@ app.listen(PORT, () => console.log(`Servidor funcionando na porta ${PORT}`));
 Configura o middleware e as rotas do aplicativo Express.
 
 ```typescript
-import express, { type ErrorRequestHandler } from "express";
-import helmet from "helmet";
-import morgan from "morgan";
-import cookieParser from "cookie-parser";
+import "express-async-errors"
+import express from "express"
+import routes from "./routes"
+import helmet from "helmet"
+import morgan from "morgan"
+import cookieParser from "cookie-parser"
+import msgpack from "./msgpack"
 import compression from "compression"
-import routes from "./routes/routes";
 import config from "./config"
+import swaggerUi from "swagger-ui-express"
+import swaggerSpec from "./swagger"
+import * as OpenApiValidator from "express-openapi-validator"
+import sanitizeMongo from "./middlewares/sanitizers/mongo"
+import sanitizeHtml from "./middlewares/sanitizers/html"
 
-const app = express();
-app.use(helmet());
-app.use(morgan("dev"));
-app.use(express.json());
-app.use(cookieParser(config.JWT_SECRET));
-app.use(compression());
-app.use("/api", routes);
+const app = express()
 
-const errorHandling: ErrorRequestHandler = (err, _req, res, _next) => {
-  res.status(500).json({ msg: err.message, success: false });
-};
-app.use(errorHandling);
+app.use(helmet())
+app.use(morgan("dev"))
+app.use(express.json())
+app.use(cookieParser(config.JWT_SECRET))
+app.use(msgpack())
+app.use(compression())
+app.use("/api", routes)
+app.use(sanitizeMongo())
+app.use(sanitizeHtml())
 
-export default app;
+//Swagger
+app.use("/api-docs", swaggerUi.serve)
+app.get("/api-docs", swaggerUi.setup(swaggerSpec))
+
+app.use(
+  OpenApiValidator.middleware({
+    apiSpec: "./openapi.yaml",
+    validateRequests: true,
+    validateApiSpec: false,
+    ignorePaths: () => [
+      "/api/uploads/{museu}/{anoDeclaracao}",
+      "/retificar/:museu/:anoDeclaracao/:idDeclaracao"
+    ]
+  })
+)
+
+export default app
 ```
 
 #### Explicação:
