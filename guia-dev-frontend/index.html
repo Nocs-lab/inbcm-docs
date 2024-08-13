@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../guia-contribuicao/">
       
       
-        <link rel="next" href="../envio-declaracoes/">
+        <link rel="next" href="../manual/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Arquitetura - Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)</title>
+        <title>Guia para devs - frontend - Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#arquitetura-do-projeto-inbcm" class="md-skip">
+        <a href="#guia-de-desenvolvimento-do-frontend-do-projeto-inbcm" class="md-skip">
           Ir para o conteúdo
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Arquitetura
+              Guia para devs - frontend
             
           </span>
         </div>
@@ -169,16 +169,17 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
     
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
   
-  Home
+  Backend
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -188,16 +189,17 @@
     
   
   
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="./" class="md-tabs__link">
-        
-  
     
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
   
-  Arquitetura
+  Frontend
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -205,84 +207,17 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../envio-declaracoes/" class="md-tabs__link">
-        
-  
     
-  
-  Envio de declarações
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../guia-dev-backend/" class="md-tabs__link">
-        
-  
     
+      <li class="md-tabs__item">
+        <a href="../manual/" class="md-tabs__link">
+          
   
-  Guia para devs - backend
+  Ajuda
 
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../recomendacoes/" class="md-tabs__link">
-        
-  
+        </a>
+      </li>
     
-  
-  Recomendações
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../boas-praticas-api-rest/" class="md-tabs__link">
-        
-  
-    
-  
-  Boas práticas para API REST
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../manual/" class="md-tabs__link">
-        
-  
-    
-  
-  Manual
-
-      </a>
-    </li>
   
 
       
@@ -327,22 +262,93 @@
   
   
   
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
         
   
+  
+    <a href=".." class="md-nav__link">
+      
+  
   <span class="md-ellipsis">
-    Home
+    Backend
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
     
       
       
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Frontend
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
     
@@ -361,7 +367,7 @@
           
   
   <span class="md-ellipsis">
-    Arquitetura
+    Guia para devs - frontend
   </span>
   
 
@@ -372,7 +378,7 @@
         
   
   <span class="md-ellipsis">
-    Arquitetura
+    Guia para devs - frontend
   </span>
   
 
@@ -394,62 +400,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#objetivos-da-arquitetura" class="md-nav__link">
+  <a href="#impacto-esperado" class="md-nav__link">
     <span class="md-ellipsis">
-      Objetivos da arquitetura
+      Impacto esperado
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#componentes-da-arquitetura-frontend" class="md-nav__link">
-    <span class="md-ellipsis">
-      Componentes da arquitetura (Frontend)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Componentes da arquitetura (Frontend)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#um-plugin-de-extensao-do-tainacan" class="md-nav__link">
-    <span class="md-ellipsis">
-      Um plugin de extensão do Tainacan
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aplicacao-web-inbcm" class="md-nav__link">
-    <span class="md-ellipsis">
-      Aplicação Web INBCM
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aplicacao-web-de-administracao-para-funcionarios-do-ibram" class="md-nav__link">
-    <span class="md-ellipsis">
-      Aplicação Web de administração para funcionários do IBRAM
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backend-nodejs" class="md-nav__link">
-    <span class="md-ellipsis">
-      Backend Node.js
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -460,23 +415,11 @@
     </li>
   
 
-    
+              
+            
+          </ul>
+        </nav>
       
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../envio-declaracoes/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Envio de declarações
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -487,76 +430,40 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../guia-dev-backend/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Guia para devs - backend
-  </span>
-  
-
-      </a>
-    </li>
-  
-
+    
+    
     
       
       
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../recomendacoes/" class="md-nav__link">
         
-  
-  <span class="md-ellipsis">
-    Recomendações
-  </span>
-  
-
-      </a>
-    </li>
-  
-
+      
+    
     
       
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../boas-praticas-api-rest/" class="md-nav__link">
         
-  
-  <span class="md-ellipsis">
-    Boas práticas para API REST
-  </span>
-  
-
-      </a>
-    </li>
-  
-
+        
+      
     
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
       
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../manual/" class="md-nav__link">
         
   
+  
+    <a href="../manual/" class="md-nav__link">
+      
+  
   <span class="md-ellipsis">
-    Manual
+    Ajuda
   </span>
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -576,28 +483,39 @@
                   
 
 
-<h1 id="arquitetura-do-projeto-inbcm">Arquitetura do projeto INBCM</h1>
-<h2 id="objetivos-da-arquitetura">Objetivos da arquitetura</h2>
-<p>A arquitetura do projeto INBCM foi concebida para ser modular, robusta e escalável, visando atender a uma ampla gama de requisitos e cenários de uso. Buscamos criar uma plataforma que possa evoluir e se adaptar às necessidades futuras, mantendo a integridade, segurança e acessibilidade dos dados.</p>
-<pre class="mermaid"><code>graph LR
-    A(Frontend User - ReactJS) &lt;--&gt; L{Balanceador de carga}
-    C(Frontend Admin - ReactJS) &lt;--&gt; L{Balanceador de carga}
-    D(Tainacan - Wordpress) &lt;--&gt; L{Balanceador de carga}
-    L{Balanceador de carga} &lt;--&gt; E{Backend - NodeJs}
-    E{Backend - NodeJs} &lt;--&gt; F[(Mongo)]
-    E{Backend - NodeJs} &lt;--&gt; G(KeyCloak)
-    %%G(KeyCloak) &lt;--&gt; H(API do MuseusBR)
-    %%E{Backend - NodeJs} &lt;--&gt; I(RabbitMQ)
-    %%I(RabbitMQ) --&gt; J(Processador arquivos)</code></pre>
-<h2 id="componentes-da-arquitetura-frontend">Componentes da arquitetura (Frontend)</h2>
-<h3 id="um-plugin-de-extensao-do-tainacan">Um plugin de extensão do Tainacan</h3>
-<p>O plugin para extensão do Tainacan permitirá aos museus e instituições culturais integrarem suas coleções ao INBCM diretamente do painel de administração do Tainacan. Este plugin oferece uma interface intuitiva para o envio de inventários e consulta de dados, garantindo uma experiência de usuário uniforme e integrada.</p>
-<h3 id="aplicacao-web-inbcm">Aplicação Web INBCM</h3>
-<p>A aplicação web do INBCM serve como o ponto central para usuários que não utilizam o Tainacan. Aqui, os usuários podem baixar templates de inventário, preencher e submeter seus arquivos para análise e inclusão no sistema. Além disso, esta plataforma permite a consulta de itens museológicos já catalogados, oferecendo filtros e ferramentas de pesquisa avançadas.</p>
-<h3 id="aplicacao-web-de-administracao-para-funcionarios-do-ibram">Aplicação Web de administração para funcionários do IBRAM</h3>
-<p>A aplicação web de administração serve como uma plataforma para que funcionários do IBRAM possam gerenciar e monitorar os processos e dados do sistema, incluindo a revisão e validação de informações enviadas pelos museus.</p>
-<h3 id="backend-nodejs">Backend Node.js</h3>
-<p>A escolha do Node.js foi devido à sua eficiência com operações I/O assíncronas, sendo ideal para o backend que lidará com um volume significativo de requisições e processamento de dados em tempo real. O Node.js atua como a espinha dorsal da plataforma, gerenciando a lógica de aplicação, autenticação de usuários e interação com o banco de dados.</p>
+<h1 id="guia-de-desenvolvimento-do-frontend-do-projeto-inbcm">Guia de desenvolvimento do frontend do projeto INBCM</h1>
+<p>O projeto frontend para o INBCM visa criar uma interface de usuário amigável e acessível para o envio de declarações. O principal objetivo é simplificar o processo de envio de declarações para os usuários, garantindo ao mesmo tempo a segurança e a integridade dos dados enviados.</p>
+<h2 id="impacto-esperado">Impacto esperado</h2>
+<p>A expectativa é que a aplicação reduza erros de entrada de dados, agilize o processo de envio e melhore a experiência geral do usuário. Isso ajudará o INBCM a processar declarações de forma mais eficiente e com menor necessidade de intervenção manual.</p>
+<ol>
+<li>Página de Estrutura do Projeto
+Visão Geral da Estrutura
+A aplicação é dividida em várias pastas principais, cada uma com um propósito específico no projeto:</li>
+</ol>
+<p>/components: Contém todos os componentes reutilizáveis, facilitando a manutenção e o desenvolvimento ágil.
+/pages: Armazena os arquivos de cada página da aplicação, cada um representando uma tela específica dentro do sistema.
+/utils: Inclui utilitários e helpers que fornecem funcionalidades comuns utilizadas em várias partes do projeto.
+Fluxo de Arquivos e Diretórios
+Detalhamento da organização dos diretórios e da função de cada arquivo, com exemplos de código e explicações sobre como eles contribuem para a funcionalidade geral da aplicação.</p>
+<ol>
+<li>Página de Tecnologias Utilizadas
+Detalhamento das Tecnologias
+Cada tecnologia utilizada no projeto será detalhada, explicando sua função, vantagens e como ela se integra ao conjunto do projeto:</li>
+</ol>
+<p>React: Como os componentes são criados, estados gerenciados, e a UI atualizada.
+TypeScript: Exemplos de como a tipagem estática beneficia o desenvolvimento.
+Vite: Como o Vite melhora o desenvolvimento e o tempo de build do projeto.
+Benefícios e Justificativas
+Por que cada tecnologia foi escolhida e quais problemas específicos ela resolve dentro do contexto do projeto.</p>
+<ol>
+<li>Página de Detalhes de Desenvolvimento
+Práticas de Código
+Melhores práticas adotadas no projeto, como componentização, testes, padrões de projeto e estratégias de segurança.</li>
+</ol>
+<p>Exemplos de Implementação
+Códigos exemplificativos mostrando a implementação de funcionalidades chave, como autenticação, gestão de estado, e roteamento.</p>
+<p>Testes e Manutenção
+Como os testes são estruturados e quais estratégias são usadas para garantir que o projeto permaneça funcional e fácil de manter ao longo do tempo.</p>
 
 
 

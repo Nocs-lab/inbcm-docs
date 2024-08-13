@@ -1,0 +1,1123 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../guia-dev-backend/">
+      
+      
+        <link rel="next" href="../testes/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.26">
+    
+    
+      
+        <title>Endpoints - Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-documentation" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)" class="md-header__button md-logo" aria-label="Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Endpoints
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartilhar" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href=".." class="md-tabs__link">
+          
+  
+  Backend
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../guia-dev-frontend/" class="md-tabs__link">
+          
+  
+  Frontend
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../manual/" class="md-tabs__link">
+          
+  
+  Ajuda
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)" class="md-nav__button md-logo" aria-label="Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Sistema de Inventário Nacional de Bens Curatoriais Musealizados (INBCM)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Backend
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Backend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Principal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modelo-dados/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modelo de dados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../envio-declaracoes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Envio de declarações
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia-dev-backend/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia para devs - backend
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Endpoints
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Endpoints
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      Endpoints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listar-itens-por-tipo-de-bem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listar Itens por Tipo de Bem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criar-museu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Criar Museu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listar-museus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listar Museus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listar-museus-do-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listar Museus do Usuário
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enviar-declaracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enviar Declaração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retificar-declaracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Retificar Declaração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baixar-arquivo-de-declaracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baixar Arquivo de Declaração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obter-declaracoes-do-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Declarações do Usuário
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obter-declaracao-por-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Declaração por ID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obter-declaracoes-por-museu-e-ano" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Declarações por Museu e Ano
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obter-declaracoes-filtradas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Declarações Filtradas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizar-status-de-declaracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atualizar Status de Declaração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obter-declaracoes-pendentes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Declarações Pendentes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obter-declaracoes-por-ano-para-o-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Declarações por Ano para o Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obter-declaracoes-por-regiao-para-o-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Declarações por Região para o Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obter-declaracoes-por-uf-para-o-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Declarações por UF para o Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obter-declaracoes-por-status-para-o-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obter Declarações por Status para o Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gerar-recibo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gerar Recibo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-de-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login de Usuário
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atualizar-token-de-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Atualizar Token de Acesso
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../testes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia-contribuicao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Guia de contribuição
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../guia-dev-frontend/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Frontend
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+    <a href="../manual/" class="md-nav__link">
+      
+  
+  <span class="md-ellipsis">
+    Ajuda
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="api-documentation">API Documentation</h1>
+<h2 id="endpoints">Endpoints</h2>
+<h3 id="listar-itens-por-tipo-de-bem">Listar Itens por Tipo de Bem</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /listar-itens/:museuId/:ano/:tipo</code></li>
+<li><strong>Middleware:</strong> <code>userMiddleware</code></li>
+<li><strong>Descrição:</strong> Lista os itens de inventário por tipo de bem para um museu específico.</li>
+<li><strong>Parâmetros:</strong></li>
+<li><code>museuId</code>: ID do museu (string)</li>
+<li><code>ano</code>: Ano de referência (string)</li>
+<li><code>tipo</code>: Tipo do bem a ser listado (string)</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Itens listados com sucesso.</li>
+<li><code>401</code>: Não autorizado.</li>
+<li><code>500</code>: Erro interno.</li>
+</ul>
+<hr />
+<h3 id="criar-museu">Criar Museu</h3>
+<ul>
+<li><strong>Rota:</strong> <code>POST /criarMuseu</code></li>
+<li><strong>Middleware:</strong> <code>adminMiddleware</code></li>
+<li><strong>Descrição:</strong> Cria um novo museu.</li>
+<li><strong>Parâmetros:</strong></li>
+<li><strong>Body:</strong><ul>
+<li><code>nome</code> (string): Nome do museu.</li>
+<li><code>endereco</code> (object):</li>
+<li><code>cidade</code> (string): Nome da cidade.</li>
+<li><code>UF</code> (string): Sigla do estado.</li>
+<li><code>logradouro</code> (string): Nome da rua.</li>
+<li><code>numero</code> (string): Número do endereço.</li>
+<li><code>complemento</code> (string): Complemento do endereço (opcional).</li>
+<li><code>bairro</code> (string): Bairro.</li>
+<li><code>cep</code> (string): CEP.</li>
+<li><code>municipio</code> (string): Nome do município.</li>
+</ul>
+</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Museu criado com sucesso.</li>
+<li><code>400</code>: Erro na criação do museu.</li>
+</ul>
+<hr />
+<h3 id="listar-museus">Listar Museus</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /listarMuseus</code></li>
+<li><strong>Middleware:</strong> <code>adminMiddleware</code></li>
+<li><strong>Descrição:</strong> Lista todos os museus cadastrados no sistema.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Lista de museus retornada com sucesso.</li>
+<li><code>500</code>: Erro ao listar museus.</li>
+</ul>
+<hr />
+<h3 id="listar-museus-do-usuario">Listar Museus do Usuário</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /museus</code></li>
+<li><strong>Middleware:</strong> <code>userMiddleware</code></li>
+<li><strong>Descrição:</strong> Lista os museus associados ao usuário autenticado.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Lista de museus do usuário retornada com sucesso.</li>
+<li><code>500</code>: Erro ao listar museus do usuário.</li>
+</ul>
+<hr />
+<h3 id="enviar-declaracao">Enviar Declaração</h3>
+<ul>
+<li><strong>Rota:</strong> <code>POST /uploads/:museu/:anoDeclaracao</code></li>
+<li><strong>Middlewares:</strong> <code>uploadMiddleware</code>, <code>userMiddleware</code></li>
+<li><strong>Descrição:</strong> Envia uma declaração para o museu especificado.</li>
+<li><strong>Parâmetros:</strong></li>
+<li><code>museu</code> (string): ID do museu.</li>
+<li><code>anoDeclaracao</code> (string): Ano da declaração.</li>
+<li><strong>Body (multipart/form-data):</strong><ul>
+<li><code>arquivisticoArquivo</code> (binary): Arquivo arquivístico.</li>
+<li><code>bibliograficoArquivo</code> (binary): Arquivo bibliográfico.</li>
+<li><code>museologicoArquivo</code> (binary): Arquivo museológico.</li>
+<li><code>arquivistico</code> (string): Dados arquivísticos.</li>
+<li><code>bibliografico</code> (string): Dados bibliográficos.</li>
+<li><code>museologico</code> (string): Dados museológicos.</li>
+</ul>
+</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Declaração enviada com sucesso.</li>
+<li><code>400</code>: Museu inválido.</li>
+<li><code>500</code>: Erro ao enviar arquivos para a declaração.</li>
+</ul>
+<hr />
+<h3 id="retificar-declaracao">Retificar Declaração</h3>
+<ul>
+<li><strong>Rota:</strong> <code>PUT /retificar/:museu/:anoDeclaracao/:idDeclaracao</code></li>
+<li><strong>Middlewares:</strong> <code>uploadMiddleware</code>, <code>userMiddleware</code></li>
+<li><strong>Descrição:</strong> Retifica uma declaração existente.</li>
+<li><strong>Parâmetros:</strong></li>
+<li><code>museu</code> (string): ID do museu.</li>
+<li><code>anoDeclaracao</code> (string): Ano da declaração.</li>
+<li><code>idDeclaracao</code> (string): ID da declaração a ser retificada.</li>
+<li><strong>Body (multipart/form-data):</strong><ul>
+<li><code>arquivisticoArquivo</code> (binary): Novo arquivo arquivístico.</li>
+<li><code>bibliograficoArquivo</code> (binary): Novo arquivo bibliográfico.</li>
+<li><code>museologicoArquivo</code> (binary): Novo arquivo museológico.</li>
+</ul>
+</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Declaração retificada com sucesso.</li>
+<li><code>404</code>: Declaração não encontrada.</li>
+<li><code>500</code>: Erro ao retificar declaração.</li>
+</ul>
+<hr />
+<h3 id="baixar-arquivo-de-declaracao">Baixar Arquivo de Declaração</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /download/:museu/:anoDeclaracao/:tipoArquivo</code></li>
+<li><strong>Middleware:</strong> <code>userMiddleware</code></li>
+<li><strong>Descrição:</strong> Baixa um arquivo de declaração para o museu e ano especificados.</li>
+<li><strong>Parâmetros:</strong></li>
+<li><code>museu</code> (string): ID do museu.</li>
+<li><code>anoDeclaracao</code> (string): Ano da declaração.</li>
+<li><code>tipoArquivo</code> (string): Tipo de arquivo (arquivistico, bibliografico, museologico).</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Arquivo de declaração baixado com sucesso.</li>
+<li><code>404</code>: Declaração ou arquivo não encontrado.</li>
+<li><code>500</code>: Erro ao baixar arquivo da declaração.</li>
+</ul>
+<hr />
+<h3 id="obter-declaracoes-do-usuario">Obter Declarações do Usuário</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /declaracoes</code></li>
+<li><strong>Middleware:</strong> <code>userMiddleware</code></li>
+<li><strong>Descrição:</strong> Obtém todas as declarações pertencentes ao usuário autenticado.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Lista de todas as declarações do usuário obtida com sucesso.</li>
+<li><code>500</code>: Erro ao buscar declarações.</li>
+</ul>
+<hr />
+<h3 id="obter-declaracao-por-id">Obter Declaração por ID</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /declaracoes/:id</code></li>
+<li><strong>Middleware:</strong> <code>userMiddleware</code></li>
+<li><strong>Descrição:</strong> Obtém uma declaração específica pelo seu ID.</li>
+<li><strong>Parâmetros:</strong></li>
+<li><code>id</code> (string): ID da declaração.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Declaração obtida com sucesso.</li>
+<li><code>404</code>: Declaração não encontrada.</li>
+<li><code>500</code>: Erro ao buscar declaração.</li>
+</ul>
+<hr />
+<h3 id="obter-declaracoes-por-museu-e-ano">Obter Declarações por Museu e Ano</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /declaracoes/:museu/:anoDeclaracao</code></li>
+<li><strong>Middleware:</strong> <code>userMiddleware</code></li>
+<li><strong>Descrição:</strong> Obtém declarações de um museu específico para um ano específico.</li>
+<li><strong>Parâmetros:</strong></li>
+<li><code>museu</code> (string): ID do museu.</li>
+<li><code>anoDeclaracao</code> (string): Ano da declaração.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Declarações obtidas com sucesso.</li>
+<li><code>404</code>: Declarações não encontradas.</li>
+<li><code>500</code>: Erro ao buscar declarações.</li>
+</ul>
+<hr />
+<h3 id="obter-declaracoes-filtradas">Obter Declarações Filtradas</h3>
+<ul>
+<li><strong>Rota:</strong> <code>POST /declaracoesFiltradas</code></li>
+<li><strong>Middleware:</strong> <code>adminMiddleware</code></li>
+<li><strong>Descrição:</strong> Obtém declarações com base em filtros especificados.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Declarações filtradas obtidas com sucesso.</li>
+<li><code>500</code>: Erro ao buscar declarações com filtros.</li>
+</ul>
+<hr />
+<h3 id="atualizar-status-de-declaracao">Atualizar Status de Declaração</h3>
+<ul>
+<li><strong>Rota:</strong> <code>PUT /atualizarStatus/:id</code></li>
+<li><strong>Middleware:</strong> <code>adminMiddleware</code></li>
+<li><strong>Descrição:</strong> Atualiza o status de uma declaração.</li>
+<li><strong>Parâmetros:</strong></li>
+<li><code>id</code> (string): ID da declaração.</li>
+<li><strong>Body:</strong><ul>
+<li><code>status</code> (string): Novo status da declaração.</li>
+</ul>
+</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Status atualizado com sucesso.</li>
+<li><code>404</code>: Declaração não encontrada.</li>
+<li><code>500</code>: Erro ao atualizar status.</li>
+</ul>
+<hr />
+<h3 id="obter-declaracoes-pendentes">Obter Declarações Pendentes</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /declaracoes/pendentes</code></li>
+<li><strong>Middleware:</strong> <code>adminMiddleware</code></li>
+<li><strong>Descrição:</strong> Obtém declarações pendentes para processamento.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Declarações pendentes obtidas com sucesso.</li>
+<li><code>500</code>: Erro ao buscar declarações pendentes.</li>
+</ul>
+<hr />
+<h3 id="obter-declaracoes-por-ano-para-o-dashboard">Obter Declarações por Ano para o Dashboard</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /dashboard/anoDeclaracao</code></li>
+<li><strong>Middleware:</strong> <code>adminMiddleware</code></li>
+<li><strong>Descrição:</strong> Obtém declarações organizadas por ano para exibição no dashboard.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Declarações organizadas por ano obtidas com sucesso.</li>
+<li><code>500</code>: Erro ao organizar declarações por ano para o dashboard.</li>
+</ul>
+<hr />
+<h3 id="obter-declaracoes-por-regiao-para-o-dashboard">Obter Declarações por Região para o Dashboard</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /dashboard/regiao</code></li>
+<li><strong>Middleware:</strong> <code>adminMiddleware</code></li>
+<li><strong>Descrição:</strong> Obtém declarações organizadas por região para exibição no dashboard.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Declarações organizadas por região obtidas com sucesso.</li>
+<li><code>500</code>: Erro ao organizar declarações por região para o dashboard.</li>
+</ul>
+<hr />
+<h3 id="obter-declaracoes-por-uf-para-o-dashboard">Obter Declarações por UF para o Dashboard</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /dashboard/UF</code></li>
+<li><strong>Middleware:</strong> <code>adminMiddleware</code></li>
+<li><strong>Descrição:</strong> Obtém declarações organizadas por UF para exibição no dashboard.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Declarações organizadas por UF obtidas com sucesso.</li>
+<li><code>500</code>: Erro ao organizar declarações por UF para o dashboard.</li>
+</ul>
+<hr />
+<h3 id="obter-declaracoes-por-status-para-o-dashboard">Obter Declarações por Status para o Dashboard</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /dashboard/status</code></li>
+<li><strong>Middleware:</strong> <code>adminMiddleware</code></li>
+<li><strong>Descrição:</strong> Obtém declarações organizadas por status para exibição no dashboard.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Declarações organizadas por status obtidas com sucesso.</li>
+<li><code>500</code>: Erro ao organizar declarações por status para o dashboard.</li>
+</ul>
+<hr />
+<h3 id="gerar-recibo">Gerar Recibo</h3>
+<ul>
+<li><strong>Rota:</strong> <code>GET /recibo/:idDeclaracao</code></li>
+<li><strong>Middleware:</strong> <code>userMiddleware</code></li>
+<li><strong>Descrição:</strong> Gera um recibo para a declaração especificada.</li>
+<li><strong>Parâmetros:</strong></li>
+<li><code>idDeclaracao</code> (string): ID da declaração.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Recibo gerado com sucesso.</li>
+<li><code>400</code>: ID inválido.</li>
+<li><code>500</code>: Erro ao gerar o recibo.</li>
+</ul>
+<hr />
+<h3 id="login-de-usuario">Login de Usuário</h3>
+<ul>
+<li><strong>Rota:</strong> <code>POST /auth/login</code></li>
+<li><strong>Middleware:</strong> <code>limiter</code></li>
+<li><strong>Descrição:</strong> Realiza login de usuário.</li>
+<li><strong>Parâmetros:</strong></li>
+<li><code>email</code> (string): Email do usuário.</li>
+<li><code>password</code> (string): Senha do usuário.</li>
+<li><strong>Query:</strong><ul>
+<li><code>admin</code> (boolean): Flag para login como administrador (opcional).</li>
+</ul>
+</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Login bem-sucedido.</li>
+<li><code>401</code>: Credenciais inválidas.</li>
+</ul>
+<hr />
+<h3 id="atualizar-token-de-acesso">Atualizar Token de Acesso</h3>
+<ul>
+<li><strong>Rota:</strong> <code>POST /auth/refresh</code></li>
+<li><strong>Descrição:</strong> Atualiza o token de acesso.</li>
+<li><strong>Respostas:</strong></li>
+<li><code>200</code>: Token atualizado com sucesso.</li>
+<li><code>401</code>: Falha ao atualizar o token.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.tabs", "navigation.prune", "navigation.sections", "search.highlight", "search.share", "toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.ad660dcc.min.js"></script>
+      
+    
+  </body>
+</html>
