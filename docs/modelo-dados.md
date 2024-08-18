@@ -1,11 +1,9 @@
 
-# Documentação dos Modelos de Dados
+# Documentação dos modelos de dados
 
-## Modelos de dados
+## Estrutura dos modelos (Schemas)
 
-### Estrutura dos modelos (Schemas)
-
-#### Arquivístico
+### Arquivístico
 ```typescript
 import mongoose from "mongoose";
 import Bem from "./BemCultural";
@@ -29,7 +27,7 @@ export const Arquivistico = Bem.discriminator(
 
 O modelo **Arquivístico** é um sub-tipo de `BemCultural`, utilizando um discriminador para diferenciar documentos arquivísticos.
 
-#### Bem Cultural
+### Bem cultural
 ```typescript
 import mongoose, { Schema } from "mongoose";
 
@@ -53,9 +51,9 @@ const BemCultural = mongoose.model("bens", BemCulturalSchema);
 export default BemCultural;
 ```
 
-O **Bem Cultural** inclui referências a declarações e pode ter várias mídias relacionadas. Este modelo é a base para outros modelos como **Arquivístico**, **Bibliográfico** e **Museológico**.
+O **Bem cultural** inclui referências a declarações e pode ter várias mídias relacionadas. Este modelo é a base para outros modelos como **Arquivístico**, **Bibliográfico** e **Museológico**.
 
-#### Bibliográfico
+### Bibliográfico
 ```typescript
 import mongoose from "mongoose";
 import Bem from "./BemCultural";

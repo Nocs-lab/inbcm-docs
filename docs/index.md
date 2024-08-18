@@ -105,11 +105,11 @@ A aplicação web de administração serve como uma plataforma para que funcion�
 
 A escolha do Node.js foi devido à sua eficiência com operações I/O assíncronas, sendo ideal para o backend que lidará com um volume significativo de requisições e processamento de dados em tempo real. O Node.js atua como a espinha dorsal da plataforma, gerenciando a lógica de aplicação, autenticação de usuários e interação com o banco de dados.
 
-### Balanceador de carga
+#### Balanceador de carga
 
 Este componente distribui as requisições de acesso entre os servidores disponíveis para otimizar recursos e melhorar a velocidade de resposta, atuando em frente às interfaces de usuário e administração, bem como ao sistema Tainacan.
 
-### Mongo (MongoDB)
+#### Mongo (MongoDB)
 
 Banco de dados NoSQL usado para armazenar dados de forma flexível, provavelmente contendo informações sobre os usuários, configurações do sistema e dados dos museus.
 MuseusBR: Sistema ou componente que parece ser uma interface ou serviço para integrar com uma base de dados ou API externa, provavelmente relacionada a museus brasileiros.
