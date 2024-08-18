@@ -377,16 +377,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#modelos-de-dados" class="md-nav__link">
-    <span class="md-ellipsis">
-      Modelos de dados
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Modelos de dados">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#estrutura-dos-modelos-schemas" class="md-nav__link">
     <span class="md-ellipsis">
       Estrutura dos modelos (Schemas)
@@ -408,7 +398,7 @@
           <li class="md-nav__item">
   <a href="#bem-cultural" class="md-nav__link">
     <span class="md-ellipsis">
-      Bem Cultural
+      Bem cultural
     </span>
   </a>
   
@@ -420,11 +410,6 @@
       Bibliográfico
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -684,10 +669,9 @@
                   
 
 
-<h1 id="documentacao-dos-modelos-de-dados">Documentação dos Modelos de Dados</h1>
-<h2 id="modelos-de-dados">Modelos de dados</h2>
-<h3 id="estrutura-dos-modelos-schemas">Estrutura dos modelos (Schemas)</h3>
-<h4 id="arquivistico">Arquivístico</h4>
+<h1 id="documentacao-dos-modelos-de-dados">Documentação dos modelos de dados</h1>
+<h2 id="estrutura-dos-modelos-schemas">Estrutura dos modelos (Schemas)</h2>
+<h3 id="arquivistico">Arquivístico</h3>
 <div class="language-typescript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">mongoose</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;mongoose&quot;</span><span class="p">;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">Bem</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./BemCultural&quot;</span><span class="p">;</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">arquivistico</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;inbcm-xlsx-validator/schema&quot;</span><span class="p">;</span>
@@ -708,7 +692,7 @@
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">);</span>
 </span></code></pre></div>
 <p>O modelo <strong>Arquivístico</strong> é um sub-tipo de <code>BemCultural</code>, utilizando um discriminador para diferenciar documentos arquivísticos.</p>
-<h4 id="bem-cultural">Bem Cultural</h4>
+<h3 id="bem-cultural">Bem cultural</h3>
 <div class="language-typescript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">mongoose</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Schema</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;mongoose&quot;</span><span class="p">;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">BemCulturalSchema</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">(</span>
@@ -730,8 +714,8 @@
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">BemCultural</span><span class="p">;</span>
 </span></code></pre></div>
-<p>O <strong>Bem Cultural</strong> inclui referências a declarações e pode ter várias mídias relacionadas. Este modelo é a base para outros modelos como <strong>Arquivístico</strong>, <strong>Bibliográfico</strong> e <strong>Museológico</strong>.</p>
-<h4 id="bibliografico">Bibliográfico</h4>
+<p>O <strong>Bem cultural</strong> inclui referências a declarações e pode ter várias mídias relacionadas. Este modelo é a base para outros modelos como <strong>Arquivístico</strong>, <strong>Bibliográfico</strong> e <strong>Museológico</strong>.</p>
+<h3 id="bibliografico">Bibliográfico</h3>
 <div class="language-typescript highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">mongoose</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;mongoose&quot;</span><span class="p">;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">Bem</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./BemCultural&quot;</span><span class="p">;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">bibliografico</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;inbcm-xlsx-validator/schema&quot;</span><span class="p">;</span>
