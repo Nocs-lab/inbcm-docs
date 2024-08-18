@@ -2,7 +2,7 @@
 
 ## Visão geral
 
-O Instituto Brasileiro de Museus (IBRAM), criado pela Lei 11.906/2009, lidera a Política Nacional de Museus (PNM) e busca não apenas gerenciar, mas também melhorar os serviços museológicos no Brasil. Isso envolve políticas para adquirir e preservar acervos e promover a integração entre museus. Uma função chave do IBRAM é administrar o Inventário Nacional de Bens Culturais Musealizados (INBCM), essencial para catalogar e preservar bens museológicos, bibliográficos e arquivísticos, conforme o Decreto no 8.124 de 2013. Com a necessidade de registros detalhados de todos os museus, surge a demanda por um sistema eficaz que apoie a manutenção atualizada dos dados musealizados. Para isso, está sendo desenvolvido um sistema de automação informacional pelo Laboratório de Redes e Sistemas Computacionais (NOCS Lab), vinculado ao Núcleo de Inovação em Tecnologias Computacionais (NITEC) do IFRN Campus Parnamirim. Esta colaboração entre o IBRAM e o IFRN, por meio do NOCS Lab, visa aprimorar a gestão cultural através da tecnologia avançada e processos otimizados, contribuindo significativamente para a preservação do patrimônio cultural brasileiro.
+O Instituto Brasileiro de Museus (IBRAM), estabelecido pela Lei 11.906/2009, lidera a Política Nacional de Museus (PNM) e tem o objetivo de não apenas gerenciar, mas também aprimorar os serviços museológicos no Brasil. Isso inclui políticas para a aquisição e preservação de acervos, além de promover a integração entre os museus. Uma função crucial do IBRAM é administrar o Inventário Nacional de Bens Culturais Musealizados (INBCM), fundamental para catalogar e preservar itens museológicos, bibliográficos e arquivísticos, conforme estipulado pelo Decreto no 8.124 de 2013. Diante da necessidade de manter registros detalhados de todos os museus, surge a demanda por um sistema eficaz que suporte a atualização constante dos dados musealizados. Para atender a essa necessidade, o Laboratório de Redes e Sistemas Computacionais (NOCS Lab), vinculado ao Núcleo de Inovação em Tecnologias Computacionais (NITEC) do IFRN Campus Parnamirim, está desenvolvendo um sistema de automação informacional. Essa colaboração entre o IBRAM e o IFRN, por meio do NOCS Lab, visa aprimorar a gestão cultural através de tecnologia avançada e processos otimizados, contribuindo significativamente para a preservação do patrimônio cultural brasileiro.
 
 ## Conceitos envolvidos
 
@@ -104,6 +104,15 @@ A aplicação web de administração serve como uma plataforma para que funcion�
 #### Backend Node.js
 
 A escolha do Node.js foi devido à sua eficiência com operações I/O assíncronas, sendo ideal para o backend que lidará com um volume significativo de requisições e processamento de dados em tempo real. O Node.js atua como a espinha dorsal da plataforma, gerenciando a lógica de aplicação, autenticação de usuários e interação com o banco de dados.
+
+### Balanceador de carga
+
+Este componente distribui as requisições de acesso entre os servidores disponíveis para otimizar recursos e melhorar a velocidade de resposta, atuando em frente às interfaces de usuário e administração, bem como ao sistema Tainacan.
+
+### Mongo (MongoDB)
+
+Banco de dados NoSQL usado para armazenar dados de forma flexível, provavelmente contendo informações sobre os usuários, configurações do sistema e dados dos museus.
+MuseusBR: Sistema ou componente que parece ser uma interface ou serviço para integrar com uma base de dados ou API externa, provavelmente relacionada a museus brasileiros.
 
 ## Considerações finais
 
