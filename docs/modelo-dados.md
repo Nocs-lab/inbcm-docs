@@ -1,6 +1,62 @@
 
 # Documentação dos modelos de dados
 
+## Diagrama de classes
+
+O diagrama de classes descrito abaixo tem como objetivo fornecer uma visão clara e estruturada da arquitetura das entidades do sistema. Ele detalha as principais entidades envolvidas e suas inter-relações, facilitando a compreensão dos mecanismos de dados e funcionalidades do sistema. Este diagrama é essencial tanto para novos desenvolvedores quanto para stakeholders, ajudando-os a visualizar a organização dos componentes e como eles interagem para suportar as operações do sistema.
+
+```mermaid
+classDiagram
+    class BemCultural {
+        +String titulo
+        +String condicoesReproducao
+        +String[] midiasRelacionadas
+        +ObjectId declaracao_ref
+        +Number versao
+    }
+
+    BemCultural <|-- Arquivistico
+    BemCultural <|-- Bibliografico
+    BemCultural <|-- Museologico
+
+    class Arquivistico {
+        +String field1
+        +String field2
+        ...
+    }
+
+    class Bibliografico {
+        +String field1
+        +String field2
+        ...
+    }
+
+    class Museologico {
+        +String field1
+        +String field2
+        ...
+    }
+
+    class Usuario {
+        +String nome
+        +String email
+        +String[] museus
+        +String senha
+        +Boolean admin
+        +String papel_usuario
+    }
+
+    class Declaracao {
+        +String nome
+        +Date data
+        +Boolean confirmacaoRecebimento
+        ...
+    }
+
+    Usuario --> Museu : manages
+    BemCultural --> Declaracao : refers
+```
+
 ## Estrutura dos modelos (Schemas)
 
 ### Arquivístico
@@ -91,59 +147,3 @@ As validações nos modelos incluem:
 - **Obrigatoriedade**: Campos como `titulo` em `BemCultural`, `nome` em `Usuario`, e `museu` em `Arquivistico` são obrigatórios.
 - **Único**: O campo `email` em `Usuario` é único para garantir que não existam duplicatas.
 - **Enumerações**: O campo `papel_usuario` em `Usuario` é limitado aos valores `"administrador"` e `"analista"`.
-
-## Diagrama de classes
-
-O diagrama de classes descrito abaixo tem como objetivo fornecer uma visão clara e estruturada da arquitetura das entidades do sistema. Ele detalha as principais entidades envolvidas e suas inter-relações, facilitando a compreensão dos mecanismos de dados e funcionalidades do sistema. Este diagrama é essencial tanto para novos desenvolvedores quanto para stakeholders, ajudando-os a visualizar a organização dos componentes e como eles interagem para suportar as operações do sistema.
-
-```mermaid
-classDiagram
-    class BemCultural {
-        +String titulo
-        +String condicoesReproducao
-        +String[] midiasRelacionadas
-        +ObjectId declaracao_ref
-        +Number versao
-    }
-
-    BemCultural <|-- Arquivistico
-    BemCultural <|-- Bibliografico
-    BemCultural <|-- Museologico
-
-    class Arquivistico {
-        +String field1
-        +String field2
-        ...
-    }
-
-    class Bibliografico {
-        +String field1
-        +String field2
-        ...
-    }
-
-    class Museologico {
-        +String field1
-        +String field2
-        ...
-    }
-
-    class Usuario {
-        +String nome
-        +String email
-        +String[] museus
-        +String senha
-        +Boolean admin
-        +String papel_usuario
-    }
-
-    class Declaracao {
-        +String nome
-        +Date data
-        +Boolean confirmacaoRecebimento
-        ...
-    }
-
-    Usuario --> Museu : manages
-    BemCultural --> Declaracao : refers
-```
