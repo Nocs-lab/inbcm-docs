@@ -4,7 +4,7 @@
 ## Introdução
 Esta página detalha as funcionalidades de envio de declarações, envio de retificações e download de recibos na aplicação. Inclui as descrições das classes e métodos utilizados, bem como diagramas de sequência para melhor entendimento dos processos.
 
-## Envio de declarações
+## Envio e retificação de declarações
 
 Este método recebe uma solicitação de envio de nova declaração, cria a declaração e um recibo associado, e retorna uma resposta de sucesso ao usuário.
 
@@ -173,106 +173,75 @@ sequenceDiagram
     note over Backend, DB: Erros são logados para diagnóstico
 ```
 
-## Envio de retificações
-- **Classe**: `DeclaracaoController`
-- **Método**: `retificarDeclaracao`
-
-Este método permite que o usuário envie uma retificação para uma declaração existente. Ele verifica se a declaração existe, aplica as alterações necessárias e retorna uma resposta de sucesso.
-
-```typescript
-import { Request, Response } from "express";
-import DeclaracaoService from "../service/DeclaracaoService";
-
-class DeclaracaoController {
-  private declaracaoService: DeclaracaoService;
-
-  constructor() {
-    this.declaracaoService = new DeclaracaoService();
-    this.retificarDeclaracao = this.retificarDeclaracao.bind(this);
-  }
-
-  async retificarDeclaracao(req: Request, res: Response) {
-    try {
-      const declaracao = await this.declaracaoService.retificarDeclaracao(req);
-      res.status(200).json(declaracao);
-    } catch (error) {
-      console.error("Erro ao retificar a declaração:", error);
-      res.status(500).json({ message: "Erro ao retificar a declaração" });
-    }
-  }
-}
-
-export default new DeclaracaoController();
-```
-
-### Diagrama de sequência: envio de retificação
-
-```mermaid
-sequenceDiagram
-    participant User
-    participant DeclaracaoController
-    participant DeclaracaoService
-    participant DeclaracaoModel
-
-    User->>DeclaracaoController: retificarDeclaracao(req)
-    DeclaracaoController->>DeclaracaoService: retificarDeclaracao(req)
-    DeclaracaoService->>DeclaracaoModel: update(declaracao)
-    DeclaracaoModel-->>DeclaracaoService: updatedDeclaracao
-    DeclaracaoService-->>DeclaracaoController: declaracao
-    DeclaracaoController-->>User: 200 OK (declaracao)
-```
-
 ## Download de recibos
-- **Classe**: `ReciboController`
-- **Método**: `gerarRecibo`
 
-Este método recebe uma solicitação para baixar um recibo específico, verifica a existência do recibo, gera o PDF do recibo se necessário, e retorna o recibo ao usuário.
+O método `gerarRecibo` é responsável por gerar um recibo em formato PDF para uma declaração específica, identificada pelo ID da declaração fornecido na requisição. Este método é crucial para fornecer um comprovante documental das declarações enviadas, auxiliando na gestão de documentação e na transparência das operações relacionadas às declarações museológicas.
 
 ```typescript
-import { Request, Response } from "express";
-import mongoose from "mongoose";
-import { gerarPDFRecibo } from "../service/ReciboService";
+/**
+   * Gera o recibo em formato PDF com base no ID da declaração fornecido na requisição.
+   *   @param req.params - Parâmetros da rota:
+   *     @param idDeclaracao - ID da declaração para a qual o recibo será gerado.
 
-class ReciboController {
+   */
   async gerarRecibo(req: Request, res: Response) {
     try {
-      const { idDeclaracao } = req.params;
+      const { idDeclaracao } = req.params
       if (!mongoose.Types.ObjectId.isValid(idDeclaracao)) {
-        res.status(400).json({ error: "ID inválido." });
-        return;
+        res.status(400).json({ error: "ID inválido." })
+        return
       }
 
-      const declaracaoId = new mongoose.Types.ObjectId(idDeclaracao);
-      const pdfBuffer = await gerarPDFRecibo(declaracaoId);
+      const declaracaoId = new mongoose.Types.ObjectId(idDeclaracao)
+      const pdfBuffer = await gerarPDFRecibo(declaracaoId)
 
-      res.setHeader("Content-Disposition", "attachment; filename=recibo.pdf");
-      res.setHeader("Content-Type", "application/pdf");
-      res.send(pdfBuffer);
+      res.setHeader("Content-Disposition", "attachment; filename=recibo.pdf")
+      res.setHeader("Content-Type", "application/pdf")
+      res.send(pdfBuffer)
     } catch (error) {
-      console.error("Erro ao gerar o recibo:", error);
-      res.status(500).json({ error: "Erro ao gerar o recibo." });
+      console.error("Erro ao gerar o recibo:", error)
+      res.status(500).json({ error: "Erro ao gerar o recibo." })
     }
   }
-}
-
-export default ReciboController;
 ```
+
+#### Parâmetros de entrada
+
+- `req.params.idDeclaracao`: ID da declaração para qual o recibo será gerado. Este ID deve ser um identificador válido no formato do MongoDB, garantindo que a referência à declaração seja legítima e possa ser localizada no banco de dados.
+
+#### Processo
+- **Validação do ID**: Inicialmente, o método verifica se o idDeclaracao fornecido é um ID válido de MongoDB. Se não for válido, uma resposta com status 400 é retornada, indicando "ID inválido."
+- **Geração do PDF**: Utiliza a função gerarPDFRecibo, passando o ID da declaração como argumento, para gerar o recibo em formato PDF.
+- **Envio do recibo**: Configura os headers de resposta para indicar que o conteúdo é um arquivo PDF e fornece o PDF gerado como download ao usuário.
+
+#### Respostas
+- **200 OK**: O recibo em PDF é retornado como um arquivo para download.
+- **400 Bad Request**: Retornado se o ID fornecido não for válido.
+- **500 Internal Server Error**: Retornado se ocorrer um erro durante o processo de geração do recibo.
+
+#### Considerações de segurança
+A validação rigorosa do ID da declaração ajuda a prevenir ataques de injeção e garante que apenas recibos para declarações legítimas sejam gerados.
 
 ### Diagrama de sequência: download de recibo
 
 ```mermaid
 sequenceDiagram
-    participant User
-    participant ReciboController
-    participant ReciboService
-    participant FileSystem
+    participant Usuario as Usuário
+    participant Frontend as Frontend
+    participant Backend as Backend (NodeJs)
+    participant DB as Banco de Dados (MongoDB)
+    participant PDFService as Serviço de PDF
 
-    User->>ReciboController: gerarRecibo(req)
-    ReciboController->>ReciboService: gerarPDFRecibo(declaracaoId)
-    ReciboService->>FileSystem: create PDF
-    FileSystem-->>ReciboService: pdfBuffer
-    ReciboService-->>ReciboController: pdfBuffer
-    ReciboController-->>User: download(pdfBuffer)
+    Usuario->>+Frontend: Solicita download de recibo (idDeclaracao)
+    Frontend->>+Backend: Requisição para gerar recibo (idDeclaracao)
+    Backend->>+DB: Verifica validade do idDeclaracao
+    DB-->>-Backend: Confirma validade
+    Backend->>+PDFService: Solicita geração de recibo (idDeclaracao)
+    PDFService-->>-Backend: PDF gerado
+    Backend-->>-Frontend: Envia PDF como download
+    Frontend-->>-Usuario: Recebe e abre/download o PDF
+
+    note over Backend, PDFService: Erros durante a geração do recibo são logados
 ```
 
 ## Conclusão
