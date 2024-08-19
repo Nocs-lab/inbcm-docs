@@ -41,6 +41,7 @@ nav:
       - Endpoints: endpoints.md
       - Testes: testes.md
       - Guia de contribuição: guia-contribuicao.md
+      - Tecnologias do backend: tecnologias.md
   - Frontend:
       - Guia para devs - frontend: guia-dev-frontend.md
   - Ajuda:
