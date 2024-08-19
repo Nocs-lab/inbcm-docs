@@ -46,6 +46,8 @@ nav:
       - Guia para devs - frontend: guia-dev-frontend.md
       - Página de login: login.md
       - Página de minhas declarações: minhas-declaracoes.md
+      - Página de declarações: declaracoes.md
+      #- Página de novas declarações: novas-declaracoes.md
   - Ajuda:
       - Manual: manual.md  
       - Boas práticas para API REST: boas-praticas-api-rest.md
