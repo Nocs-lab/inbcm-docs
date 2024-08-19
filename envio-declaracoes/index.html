@@ -407,13 +407,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#envio-de-declaracoes" class="md-nav__link">
+  <a href="#envio-e-retificacao-de-declaracoes" class="md-nav__link">
     <span class="md-ellipsis">
-      Envio de declarações
+      Envio e retificação de declarações
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Envio de declarações">
+    <nav class="md-nav" aria-label="Envio e retificação de declarações">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -494,30 +494,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#envio-de-retificacoes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Envio de retificações
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Envio de retificações">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#diagrama-de-sequencia-envio-de-retificacao" class="md-nav__link">
-    <span class="md-ellipsis">
-      Diagrama de sequência: envio de retificação
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#download-de-recibos" class="md-nav__link">
     <span class="md-ellipsis">
       Download de recibos
@@ -526,6 +502,42 @@
   
     <nav class="md-nav" aria-label="Download de recibos">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parametros-de-entrada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parâmetros de entrada
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#respostas_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Respostas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consideracoes-de-seguranca_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Considerações de segurança
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#diagrama-de-sequencia-download-de-recibo" class="md-nav__link">
@@ -756,7 +768,7 @@
 <h1 id="envio-de-declaracoes-envio-de-retificacoes-e-download-de-recibos">Envio de declarações, envio de retificações e download de recibos</h1>
 <h2 id="introducao">Introdução</h2>
 <p>Esta página detalha as funcionalidades de envio de declarações, envio de retificações e download de recibos na aplicação. Inclui as descrições das classes e métodos utilizados, bem como diagramas de sequência para melhor entendimento dos processos.</p>
-<h2 id="envio-de-declaracoes">Envio de declarações</h2>
+<h2 id="envio-e-retificacao-de-declaracoes">Envio e retificação de declarações</h2>
 <p>Este método recebe uma solicitação de envio de nova declaração, cria a declaração e um recibo associado, e retorna uma resposta de sucesso ao usuário.</p>
 <div class="language-typescript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w"> </span><span class="cm">/**</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm"> * Cria uma nova declaração ou retifica uma declaração existente, associando-a a um museu e ao responsável.</span>
@@ -917,96 +929,70 @@
     Frontend--&gt;&gt;-Usuario: Mostra resultado da operação
 
     note over Backend, DB: Erros são logados para diagnóstico</code></pre>
-<h2 id="envio-de-retificacoes">Envio de retificações</h2>
-<ul>
-<li><strong>Classe</strong>: <code>DeclaracaoController</code></li>
-<li><strong>Método</strong>: <code>retificarDeclaracao</code></li>
-</ul>
-<p>Este método permite que o usuário envie uma retificação para uma declaração existente. Ele verifica se a declaração existe, aplica as alterações necessárias e retorna uma resposta de sucesso.</p>
-<div class="language-typescript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Request</span><span class="p">,</span><span class="w"> </span><span class="nx">Response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">DeclaracaoService</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../service/DeclaracaoService&quot;</span><span class="p">;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">class</span><span class="w"> </span><span class="nx">DeclaracaoController</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">declaracaoService</span><span class="o">:</span><span class="w"> </span><span class="kt">DeclaracaoService</span><span class="p">;</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">declaracaoService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">DeclaracaoService</span><span class="p">();</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">retificarDeclaracao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">retificarDeclaracao</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">retificarDeclaracao</span><span class="p">(</span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="kt">Request</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="o">:</span><span class="w"> </span><span class="kt">Response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">declaracao</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">declaracaoService</span><span class="p">.</span><span class="nx">retificarDeclaracao</span><span class="p">(</span><span class="nx">req</span><span class="p">);</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">200</span><span class="p">).</span><span class="nx">json</span><span class="p">(</span><span class="nx">declaracao</span><span class="p">);</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Erro ao retificar a declaração:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Erro ao retificar a declaração&quot;</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="p">}</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">DeclaracaoController</span><span class="p">();</span>
-</span></code></pre></div>
-<h3 id="diagrama-de-sequencia-envio-de-retificacao">Diagrama de sequência: envio de retificação</h3>
-<pre class="mermaid"><code>sequenceDiagram
-    participant User
-    participant DeclaracaoController
-    participant DeclaracaoService
-    participant DeclaracaoModel
-
-    User-&gt;&gt;DeclaracaoController: retificarDeclaracao(req)
-    DeclaracaoController-&gt;&gt;DeclaracaoService: retificarDeclaracao(req)
-    DeclaracaoService-&gt;&gt;DeclaracaoModel: update(declaracao)
-    DeclaracaoModel--&gt;&gt;DeclaracaoService: updatedDeclaracao
-    DeclaracaoService--&gt;&gt;DeclaracaoController: declaracao
-    DeclaracaoController--&gt;&gt;User: 200 OK (declaracao)</code></pre>
 <h2 id="download-de-recibos">Download de recibos</h2>
-<ul>
-<li><strong>Classe</strong>: <code>ReciboController</code></li>
-<li><strong>Método</strong>: <code>gerarRecibo</code></li>
-</ul>
-<p>Este método recebe uma solicitação para baixar um recibo específico, verifica a existência do recibo, gera o PDF do recibo se necessário, e retorna o recibo ao usuário.</p>
-<div class="language-typescript highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Request</span><span class="p">,</span><span class="w"> </span><span class="nx">Response</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">import</span><span class="w"> </span><span class="nx">mongoose</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;mongoose&quot;</span><span class="p">;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">gerarPDFRecibo</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;../service/ReciboService&quot;</span><span class="p">;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">class</span><span class="w"> </span><span class="nx">ReciboController</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">gerarRecibo</span><span class="p">(</span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="kt">Request</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="o">:</span><span class="w"> </span><span class="kt">Response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">idDeclaracao</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span><span class="p">;</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">mongoose</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span><span class="p">.</span><span class="nx">isValid</span><span class="p">(</span><span class="nx">idDeclaracao</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ID inválido.&quot;</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="k">return</span><span class="p">;</span>
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">      </span><span class="p">}</span>
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">declaracaoId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">mongoose</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span><span class="p">(</span><span class="nx">idDeclaracao</span><span class="p">);</span>
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">pdfBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">gerarPDFRecibo</span><span class="p">(</span><span class="nx">declaracaoId</span><span class="p">);</span>
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s2">&quot;Content-Disposition&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;attachment; filename=recibo.pdf&quot;</span><span class="p">);</span>
-</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;application/pdf&quot;</span><span class="p">);</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">pdfBuffer</span><span class="p">);</span>
-</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Erro ao gerar o recibo:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
-</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Erro ao gerar o recibo.&quot;</span><span class="w"> </span><span class="p">});</span>
-</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="p">}</span>
-</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>
-</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">ReciboController</span><span class="p">;</span>
+<p>O método <code>gerarRecibo</code> é responsável por gerar um recibo em formato PDF para uma declaração específica, identificada pelo ID da declaração fornecido na requisição. Este método é crucial para fornecer um comprovante documental das declarações enviadas, auxiliando na gestão de documentação e na transparência das operações relacionadas às declarações museológicas.</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/**</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cm">   * Gera o recibo em formato PDF com base no ID da declaração fornecido na requisição.</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cm">   *   @param req.params - Parâmetros da rota:</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cm">   *     @param idDeclaracao - ID da declaração para a qual o recibo será gerado.</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="cm">   */</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="k">async</span><span class="w"> </span><span class="nx">gerarRecibo</span><span class="p">(</span><span class="nx">req</span><span class="o">:</span><span class="w"> </span><span class="kt">Request</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="o">:</span><span class="w"> </span><span class="kt">Response</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">idDeclaracao</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">params</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">mongoose</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span><span class="p">.</span><span class="nx">isValid</span><span class="p">(</span><span class="nx">idDeclaracao</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">400</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;ID inválido.&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="k">return</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">declaracaoId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">mongoose</span><span class="p">.</span><span class="nx">Types</span><span class="p">.</span><span class="nx">ObjectId</span><span class="p">(</span><span class="nx">idDeclaracao</span><span class="p">)</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">pdfBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">gerarPDFRecibo</span><span class="p">(</span><span class="nx">declaracaoId</span><span class="p">)</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s2">&quot;Content-Disposition&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;attachment; filename=recibo.pdf&quot;</span><span class="p">)</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;application/pdf&quot;</span><span class="p">)</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">pdfBuffer</span><span class="p">)</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Erro ao gerar o recibo:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">)</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mf">500</span><span class="p">).</span><span class="nx">json</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Erro ao gerar o recibo.&quot;</span><span class="w"> </span><span class="p">})</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">  </span><span class="p">}</span>
 </span></code></pre></div>
+<h4 id="parametros-de-entrada">Parâmetros de entrada</h4>
+<ul>
+<li><code>req.params.idDeclaracao</code>: ID da declaração para qual o recibo será gerado. Este ID deve ser um identificador válido no formato do MongoDB, garantindo que a referência à declaração seja legítima e possa ser localizada no banco de dados.</li>
+</ul>
+<h4 id="processo">Processo</h4>
+<ul>
+<li><strong>Validação do ID</strong>: Inicialmente, o método verifica se o idDeclaracao fornecido é um ID válido de MongoDB. Se não for válido, uma resposta com status 400 é retornada, indicando "ID inválido."</li>
+<li><strong>Geração do PDF</strong>: Utiliza a função gerarPDFRecibo, passando o ID da declaração como argumento, para gerar o recibo em formato PDF.</li>
+<li><strong>Envio do recibo</strong>: Configura os headers de resposta para indicar que o conteúdo é um arquivo PDF e fornece o PDF gerado como download ao usuário.</li>
+</ul>
+<h4 id="respostas_1">Respostas</h4>
+<ul>
+<li><strong>200 OK</strong>: O recibo em PDF é retornado como um arquivo para download.</li>
+<li><strong>400 Bad Request</strong>: Retornado se o ID fornecido não for válido.</li>
+<li><strong>500 Internal Server Error</strong>: Retornado se ocorrer um erro durante o processo de geração do recibo.</li>
+</ul>
+<h4 id="consideracoes-de-seguranca_1">Considerações de segurança</h4>
+<p>A validação rigorosa do ID da declaração ajuda a prevenir ataques de injeção e garante que apenas recibos para declarações legítimas sejam gerados.</p>
 <h3 id="diagrama-de-sequencia-download-de-recibo">Diagrama de sequência: download de recibo</h3>
 <pre class="mermaid"><code>sequenceDiagram
-    participant User
-    participant ReciboController
-    participant ReciboService
-    participant FileSystem
+    participant Usuario as Usuário
+    participant Frontend as Frontend
+    participant Backend as Backend (NodeJs)
+    participant DB as Banco de Dados (MongoDB)
+    participant PDFService as Serviço de PDF
 
-    User-&gt;&gt;ReciboController: gerarRecibo(req)
-    ReciboController-&gt;&gt;ReciboService: gerarPDFRecibo(declaracaoId)
-    ReciboService-&gt;&gt;FileSystem: create PDF
-    FileSystem--&gt;&gt;ReciboService: pdfBuffer
-    ReciboService--&gt;&gt;ReciboController: pdfBuffer
-    ReciboController--&gt;&gt;User: download(pdfBuffer)</code></pre>
+    Usuario-&gt;&gt;+Frontend: Solicita download de recibo (idDeclaracao)
+    Frontend-&gt;&gt;+Backend: Requisição para gerar recibo (idDeclaracao)
+    Backend-&gt;&gt;+DB: Verifica validade do idDeclaracao
+    DB--&gt;&gt;-Backend: Confirma validade
+    Backend-&gt;&gt;+PDFService: Solicita geração de recibo (idDeclaracao)
+    PDFService--&gt;&gt;-Backend: PDF gerado
+    Backend--&gt;&gt;-Frontend: Envia PDF como download
+    Frontend--&gt;&gt;-Usuario: Recebe e abre/download o PDF
+
+    note over Backend, PDFService: Erros durante a geração do recibo são logados</code></pre>
 <h2 id="conclusao">Conclusão</h2>
 <p>Esta documentação fornece uma visão detalhada das funcionalidades de envio de declarações, envio de retificações e download de recibos, incluindo as descrições das classes e métodos utilizados, bem como diagramas de sequência para melhor compreensão dos processos. Essas funcionalidades são cruciais para garantir a integridade e a conformidade das declarações e a acessibilidade dos recibos para os usuários.</p>
 
