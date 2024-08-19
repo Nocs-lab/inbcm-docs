@@ -44,6 +44,8 @@ nav:
       - Tecnologias do backend: tecnologias.md
   - Frontend:
       - Guia para devs - frontend: guia-dev-frontend.md
+      - Página de login: login.md
+      - Página de minhas declarações: minhas-declaracoes.md
   - Ajuda:
       - Manual: manual.md  
       - Boas práticas para API REST: boas-praticas-api-rest.md
