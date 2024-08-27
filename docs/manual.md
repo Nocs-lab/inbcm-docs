@@ -70,12 +70,16 @@ Para cada declaração enviada, são exibidas informações como
 4. situação em que se encontra a declaração.
 
 Clicando no ícone que é representado pela letra "A", como visto na figura abaixo, é possível visualizar o detalhamento da declaração:
+
 ![Lista de declarações enviadas](img/img4.png "Lista de declarações enviadas.")
 
 Na tela de detalhamento da declaração, como se vê na imagem abaixo, é possível baixar o recibo da declaração enviada (representado pela letra "A"), enviar uma declaração retificadora (letra "B" da figura) e visualizar as pendências (representado pela letra "C"). Nessa tela, também é possível baixar o(s) arquivo(s) enviado(s), como se vê na letra "D" da figura:
+
 ![Detalhamento da declaração](img/img5.png "Detalhamento da declaração.")
 
+Clicando no hiperlink "Visualizar pendências", o usuário consegue identificar quais são as pendências que há no(s) arquivo(s) enviado(s). No exemplo abaixo, percebe-se que há pendências nos três arquivos enviados.
 
+![Pendências da declaração](img/img6.png "Pendências da declaração.")
 
 
  
