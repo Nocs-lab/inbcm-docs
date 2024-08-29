@@ -102,7 +102,7 @@ O método `criarDeclaracao` é responsável por criar ou retificar uma declaraç
 #### Parâmetros
 - `req: Request`: O objeto de requisição do Express, que contém:
   - `req.params`: Deve incluir `anoDeclaracao`, `museu` (como `museu_id`) e opcionalmente `idDeclaracao` se for uma retificação.
-  - `req.user.id`: ID do usuário autenticado, utilizado para validar a propriedade do museu.
+  - `req.user.id`: ID do usuário autenticado, utilizado para mapear o museu correspondente.
   - `req.files`: Arquivos enviados na requisição, categorizados por tipo (arquivístico, bibliográfico, museológico).
 - `res: Response`: O objeto de resposta do Express utilizado para enviar de volta o resultado da operação.
 

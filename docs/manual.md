@@ -26,41 +26,60 @@ Este material tem como objetivo fornecer instruções detalhadas sobre a operaci
 
 Para acessar o módulo, siga os passos abaixo:
 
-1. **Acessar o endereço eletrônico**: abra seu navegador web favorito e visite o endereço eletrônico <https://homologacao.inbcm.ifrn.tainacan.org>;
-2. **Página de login**: na primeira página do portal, você verá a interface de login, conforme ilustrado na imagem abaixo:
+1. Acessar o endereço eletrônico: abra seu navegador web favorito e visite o endereço eletrônico <https://homologacao.inbcm.ifrn.tainacan.org>;
+2. Página de login: na primeira página do portal, você verá a tela de login, conforme ilustrado na Figura 1.
 
 ![Página de acesso ao módulo de Envio de Declarações](img/img1.png "Página de acesso ao módulo de Envio de Declarações.")
+<center>**Figura 1** - Acesso ao módulo de Envio de Declarações.</center>
 
-Após preencher os campos "E-mail" e "Senha", pressione o botão "Entrar". Se suas credenciais tiverem sido informadas corretamente, você será redirecionado para a página principal da aplicação, como representado na imagem a seguir. 
-
-![Página principal do módulo](img/img2.png "Figura 2 – Página principal do módulo.")
-
-Nesta página, estão disponíveis as seguintes funcionalidades:
-
-1. **Nova declaração** (indicada pela letra "A"): permite o envio de uma nova declaração ou de uma declaração retificadora; e
-2. **Minhas declarações** (indicada pela letra "B"): permite que o usuário visualize as declarações enviadas. 
+Após preencher os campos **_E-mail_** e **_Senha_**, pressione o botão **_Entrar_**. Se suas credenciais tiverem sido informadas corretamente, sua sessão será redirecionada para a página inicial da aplicação, como apresentado na Figura 2.
 
 ## Funcionalidades
 Nesta seção, são apresentadas as principais funcionalidades do módulo Envio de Declarações. Elas estão divididas em duas subseções: Enviar declaração e Visualizar declarações enviadas.
 
-### Enviar declaração 
-De acordo com a [Resolução Normativa nº 6, de 31 de agosto de 2021](https://www.gov.br/museus/pt-br/assuntos/legislacao-e-normas/outros-instrumentos-normativo/resolucao-normativa-ibram-no-6-de-31-de-agosto-de-2021), os bens podem ser Museológico, Bibliográfico ou Arquivístico. Para cada um desses tipos, há um modelo de planilha na qual serão preenchidos os dados referentes aos bens. 
+### ENVIAR NOVA DECLARAÇÃO
+De acordo com a [Resolução Normativa nº 6, de 31 de agosto de 2021](https://www.gov.br/museus/pt-br/assuntos/legislacao-e-normas/outros-instrumentos-normativo/resolucao-normativa-ibram-no-6-de-31-de-agosto-de-2021), os bens podem ser de 03 (três) tipos:
 
-Caso o usuário não possua os modelos das planilhas para preenchimento da declaração, é possível baixá-los clicando nos hiperlinks, representados pela letra "A" da figura abaixo. É importante destacar que o acervo deve ser preenchido, rigorosamente, conforme os modelos fornecidos. Caso contrário, o(s) arquivo(s) do acervo não será(ão) aceito(s).
++ Museológico: objetos preservados pelos museus devido ao seu valor histórico, artístico, científico ou cultural. Eles podem incluir artefatos, obras de arte, documentos históricos, etc.
++ Bibliográfico: pertence às coleções de bibliotecas incluindo livros, periódicos, manuscritos e outros materiais impressos ou digitais que são conservados por seu conteúdo informativo e cultural.
++ Arquivístico: documentos ou informações acumulados, resultantes de atividades governamentais, institucionais, corporativas ou pessoais, que são preservados devido ao seu valor permanente.
 
-![Página para envio de declarações](img/img3.png "Figura 3 – Página para envio de declarações.")
+Para enviar uma nova declaração de bens, basta clicar no botão **_Nova declaração_** representado pela letra "A" da Figura 2.
 
-Na lista suspensa, representada pela letra "C", o usuário deve informar de qual museu é a declaração correspondente. Não é necessário que seja enviada uma planilha para cada tipo de bem, no entanto, pelo menos uma delas é obrigatória. Há um campo para cada um dos tipos de bem (representados pelas letras "D", "E" e "F") em que o usuário deve informar a planilha a ser enviada.
+![Listagem de declarações enviadas](img/img2.png "Figura 2 – Listagem de declarações enviadas.")
+<center>**Figura 2** - Listagem de declarações enviadas.</center>
 
-Na imagem, percebe-se que foi exibida a seguinte mensagem de alerta: "Encontramos inconsistências no(s) arquivo(s) enviado(s). Você pode corrigi-las antes de enviar ou, se preferir 1) cancele o envio; 2) preencha os campos corretamente e; 3) mais tarde, retorne para enviar sua declaração. Para visualizar as inconsistências, clique aqui."
+Na sequência, a sessão será redirecionada para a página representada pela Figura 3. Para cada um dos tipos de bem, há um modelo de planilha na qual serão preenchidos os dados referentes. Caso você não possua os modelos das planilhas para preenchimento de sua declaração, é possível fazer o _download_ dos arquivos clicando em um dos _hiperlinks_, representados pela letra "A" da Figura 3.
 
-A mensagem ocorre porque há linha(s) na planilha em que, pelo menos, um campo obrigatório não foi informado. O sistema oferece uma opção (ver letra "B"), para que o usuário visualize qual(is) coluna(s) da(s) planilha(s) não foi(ram) preenchida(s).
+![Página para envio de novas declarações](img/img3.png "Figura 3 – Página para envio de novas declarações.")
+<center>**Figura 3** - Página para envio de novas declarações.</center>
 
-### Visualizar declarações
-Nesta página, o módulo oferece funcionalidades como 
+> É importante destacar que o acervo deve ser preenchido, rigorosamente, de acordo com os modelos fornecidos pelo IBRAM. Caso contrário, o arquivo do museu que contém o acervo não será enviado.
 
-1. filtrar as declarações por ano e por museu; e
-2. detalhar a declaração enviada.
+Na lista suspensa que é representada pela letra "C", informe de qual museu é a declaração a ser enviada. Já na lista suspensa (representada pela letra "D"), você deve escolher qual tipo de acervo deseja enviar. É possível selecionar um tipo ou mais de um.
+
+Você perceberá que, de acordo com o tipo selecionado, será exibido um campo no qual você deve selecionar a planilha correspondente. Na tela apresentada, foi escolhido apenas o tipo de bem museológico, conforme letra "E". Não é necessário que seja enviada uma planilha para cada um dos 03 (três) tipos de bem. No entanto, pelo menos uma delas é obrigatória.
+
+Ainda na Figura 3, foi exibida a seguinte mensagem de alerta: 
+
+![Mensagem de alerta](img/msg-alerta.png "Mensagem de alerta.")
+
+No exemplo da tela, a mensagem ocorre porque há linha(s) no arquivo em que, pelo menos, um campo obrigatório não foi informado. O sistema oferece uma opção para que você possa visualizar qual(is) campo(s) não foi(ram) preenchido(s). Ao clicar no _hiperlink_, representado pela letra "B", será exibida uma tela com as pendências. Veja a Figura 4.
+
+![Listagem de pendências encontradas no arquivo selecionado](img/img4.png "Figura 4 – Listagem de pendências encontradas no arquivo selecionado.")
+<center>**Figura 4** - Listagem de pendências encontradas no arquivo selecionado.</center>
+
+Após enviar uma nova declaração, a sessão será redirecionada para a página inicial "Minhas declarações" na qual serão exibidas as declarações enviadas. Observe a Figura 5. 
+
+### VISUALIZAR DECLARAÇÕES ENVIADAS
+A Figura 5, a seguir, apresenta as declarações que foram enviadas pelo museu. Nesta página, são oferecidas as seguintes funcionalidades: 
+
+1. filtragem de declarações por ano e por museu;
+2. ordenação por data de envio, ano, museu e status; e
+3. detalhamento da declaração enviada.
+
+![Listagem de declarações enviadas](img/img5.png "Figura 5 – Listagem de declarações enviadas.")
+<center>**Figura 5** - Listagem de declarações enviadas.</center>
 
 Para cada declaração enviada, são exibidas informações como 
 
@@ -69,19 +88,16 @@ Para cada declaração enviada, são exibidas informações como
 3. nome do museu; e
 4. situação em que se encontra a declaração.
 
-Clicando no ícone que é representado pela letra "A", como visto na figura abaixo, é possível visualizar o detalhamento da declaração:
+Clicando no ícone **_Detalhar_**, como visto na figura abaixo, é possível visualizar o detalhamento da declaração:
 
-![Lista de declarações enviadas](img/img4.png "Lista de declarações enviadas.")
+![Lista de declarações enviadas](img/img5.png "Lista de declarações enviadas.")
 
 Na tela de detalhamento da declaração, como se vê na imagem abaixo, é possível baixar o recibo da declaração enviada (representado pela letra "A"), enviar uma declaração retificadora (letra "B" da figura) e visualizar as pendências (representado pela letra "C"). Nessa tela, também é possível baixar o(s) arquivo(s) enviado(s), como se vê na letra "D" da figura:
 
-![Detalhamento da declaração](img/img5.png "Detalhamento da declaração.")
+![Detalhamento da declaração](img/img6.png "Detalhamento da declaração.")
 
 Clicando no hiperlink "Visualizar pendências", o usuário consegue identificar quais são as pendências que há no(s) arquivo(s) enviado(s). No exemplo abaixo, percebe-se que há pendências nos três arquivos enviados.
 
-![Pendências da declaração](img/img6.png "Pendências da declaração.")
-
-
- 
+![Pendências da declaração](img/img7.png "Pendências da declaração.")
 
 
