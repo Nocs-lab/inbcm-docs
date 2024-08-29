@@ -118,5 +118,11 @@ Ao submeter a nova declaração, ela passa a ser do tipo retificadora, conforme 
 ![Declaração após retificação](img/img8.png "Figura 8 – Declaração após retificação.")
 <center>**Figura 8** - Declaração após retificação.</center>
 
-## Recibo de envio da declaração
+## Download do recibo de comprovante de envio
+O módulo Envio de Declaração permite o _download_ do recibo de comprovante de envio. Ele permite obter um registro formal da submissão de suas declarações. Este recibo é gerado, automaticamente em formato PDF, após a conclusão do envio de uma declaração. Ele contém informações essenciais como o número da declaração, a data e hora de envio, bem como a quantidade de itens agrupados por tipo de acervo.
+
+O recibo serve como uma garantia confirmando que sua declaração foi devidamente registrada no sistema. Além disso, ele pode ser utilizado para fins de arquivo pessoal ou para apresentar como comprovante em eventuais auditorias. A funcionalidade de _download_ é intuitiva e pode ser acessada facilmente no módulo Envio de Declaração. Observe a estrutura do recibo por meio da Figura 9.
+
+![Recibo de comprovante de envio da declaração](img/img9.png "Figura 9 – Recibo de comprovante de envio da declaração.")
+<center>**Figura 9** - Recibo de comprovante de envio da declaração.</center>
 
